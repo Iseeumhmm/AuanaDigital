@@ -1,17 +1,18 @@
 import React from 'react'
-import { Root, Routes, addPrefetchExcludes } from 'react-static'
+import { Root, Routes, addPrefetchExcludes, Head } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import './app.css'
 
 
 const theme = {
   // Global
   // Colours
 
-  colorBase: "#1D25B8",
-  colorHighlight: "#FFBE05"
+  colorBase: "#183AB4",
+  colorHighlight: "#FFB305",
+  colorDarkGrey: "#373b47",
+  colorLightGrey: "#f9f9fa"
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -19,16 +20,14 @@ const GlobalStyle = createGlobalStyle`
   html,
   body,
   #root {
+    font-family: 'Source Sans Pro', sans-serif;
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: white;
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu,
-      roboto, noto, segoe ui, arial, sans-serif;
     background: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -37,14 +36,18 @@ const GlobalStyle = createGlobalStyle`
     -ms-user-select: none;
     user-select: none;
     cursor: default;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    line-height: 2.5rem;
+    text-rendering: optimizeLegibility;
   }
 
   #root {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     overflow: hidden;
-    background: #f0f0f0;
+    background: #000000;
   }
 `
 
@@ -59,6 +62,10 @@ function App() {
         <Link to="/blog">Blog</Link>
         <Link to="/dynamic">Dynamic</Link>
       </nav> */}
+      <Head>
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" as="style"/>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" rel="stylesheet"/>
+      </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
       <div className="content">

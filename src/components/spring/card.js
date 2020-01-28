@@ -5,23 +5,27 @@ const background = require('../../assets/homeLogo/HomePage.jpg')
 
 const Container = styled.div`
     .card {
-        width: 80rem;
-        height: 50rem;
-        background: grey;
-        border-radius: 5px;
+        /* width: 80vw;
+        height: 49.5vw; */
+        width: 100vw;
+        height: 50vw;
+        /* border-radius: 5px; */
         background-image: url(${background});
-        /* background-image: url(https://drscdn.500px.org/photo/435236/q%3D80_m%3D1500/v2?webp=true&sig=67031bdff6f582f3e027311e2074be452203ab637c0bd21d89128844becf8e40); */
-        background-size: cover;
-        background-position: center center;
+        background-size: contain;
+        background-position: top center;
+        background-repeat: no-repeat;
         box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
         transition: box-shadow 0.5s;
         will-change: transform;
-        border: 15px solid white;
+        /* border: 15px solid white; */
         &:hover {
             box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
         }
     }
 `
+
+
+
 
 const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1]
 const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
@@ -35,7 +39,8 @@ export default () => {
         onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
         onMouseLeave={() => set({ xys: [0, 0, 1] })}
         style={{ transform: props.xys.interpolate(trans) }}
-        />
+        >
+        </animated.div>
     </Container>
   )
 }
