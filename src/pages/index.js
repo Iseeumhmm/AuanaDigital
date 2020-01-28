@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
+import Card from '../components/spring/card';
 
 export default () => (
-  <div style={{ textAlign: 'center' }}>
-    <h1>Welcome to React-Static</h1>
-  </div>
+  <Card />
 )

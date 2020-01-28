@@ -1,5 +1,5 @@
 # AUANA Digital
 
-This site is built on React-Static
+This site is built with React-Static
 
 
