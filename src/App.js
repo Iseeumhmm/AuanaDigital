@@ -78,6 +78,7 @@ function App() {
         <meta property="og:site_name" content="Auana Digital Websites, Photography and Videography" />
         <meta property="og:description" content="Auana Digital embodies a philosophy of drifting from convention when technologies exist to better cater to your audience." />
         <meta property="og:url" content="https://testing.rickheffren.com" />
+         <meta property="og:image" content="http://auana.ca/images/logo.jpg"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/logo.jpg"/>
         <title>Auana Digital</title>
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" as="style"/>
