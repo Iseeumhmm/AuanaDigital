@@ -6,10 +6,10 @@ import Footer from '../components/footer'
 import Contact from '../components/HomePageContent/ContactContainer'
 
 const Container = styled.div`
+  display: ${ ({display}) => display === 'true' ? "flex" : "none" } ;
   position: ${ ({clicked}) => clicked ? "absolute" : "fixed" };
   height: 100%;
   width: 100vw;
-  display: flex;  
   flex-flow: column nowrap;
   align-content: space-between;
   .spacer {
@@ -66,10 +66,11 @@ const TextContainer = styled.div`
 export default () => {
   const [ clicked, setClicked ] = useState(false)
   const [ ohanaVisible, setOhanaVisible ] = useState(true)
+  const [ display, setDisplay ] = useState(null)
   const [ loading, setLoading ] = useState(true)
 
   const clickedHandler = () => {
-    setClicked(true)
+    setClicked('true')
   }
   const closeHandler = () => {
     setClicked(false)
@@ -79,6 +80,9 @@ export default () => {
   useEffect(()=>{
     const transition = document.getElementById('logo');
     const loaderAnimation = document.getElementById('loader');
+    setInterval(() => {
+      setDisplay('true')
+    }, 1000);
     transition.onanimationend = () => {
       setOhanaVisible(false)
     };
@@ -89,7 +93,7 @@ export default () => {
   }, [])
 
   return (
-      <Container clicked={clicked}>
+      <Container display={display} clicked={clicked}>
         <Loader id="loader" loading={loading.toString()}/>
         <Contact close={closeHandler} clicked={clicked}/>
         <CardContainer visible={ohanaVisible} clicked={clicked}>
