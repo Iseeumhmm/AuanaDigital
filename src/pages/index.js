@@ -4,6 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import Loader from '../components/HomePageContent/LoadingScreen'
 import Footer from '../components/footer'
 import Contact from '../components/HomePageContent/ContactContainer'
+const spinner = require('../assets/icons/spinner.svg')
 
 const Container = styled.div`
   display: flex ;
@@ -16,7 +17,6 @@ const Container = styled.div`
     height: 32rem;
     max-height: 45.4rem;
   }
- 
   @media( min-aspect-ratio: 4/3 ) {
     position: absolute;
     height: 71rem;
@@ -32,11 +32,22 @@ const Container = styled.div`
   }
  
 `
+const Spinner = styled.div`
+  background: url(${spinner});
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10rem;
+  height: 10rem;
+  background-size: cover;
+  z-index: 3000;
+  `
 const animateOhana = keyframes`
-  0%    { transform: scale(1);  }
-  7%    { transform: scale(1.8) translateY(15%);  }
-  15%    { transform: scale(1.5) translateY(30%);  }
-  80%   { transform: scale(1.5) translateY(30%);  }
+  0%    { transform: scale(1); }
+  7%    { transform: scale(1.8) translateY(15%); }
+  15%   { transform: scale(1.5) translateY(30%); }
+  80%   { transform: scale(1.5) translateY(30%); }
   100%  { transform: scale(0) translateY(30%); display: none; }
 `
 
@@ -81,18 +92,15 @@ export default () => {
   useEffect(()=>{
     setInterval(() => {
       setLoadDelay(false)
-    }, 1500);
-    if (!loadDelay) {
       const transition = document.getElementById('logo');
       const loaderAnimation = document.getElementById('loader');
-      
       transition.onanimationend = () => {
         setOhanaVisible(false)
       };
       loaderAnimation.onanimationend = () => {
         setLoading(false)
       };
-    }
+      }, 1500);
   }, [])
 
   const content = (
@@ -113,5 +121,5 @@ export default () => {
           <Footer clicked={clickedHandler} hidden={clicked}/>    
       </Container>
   )
-    return loadDelay ? null : content
+    return loadDelay ?  <Spinner /> : content
 }
