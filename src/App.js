@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
+    background: #000000;
   }
 
   body {
@@ -40,14 +41,22 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 1px;
     line-height: 2.5rem;
     text-rendering: optimizeLegibility;
+    p, h1, h2, h3 { margin: 0; }
+    a { 
+      font-size: 1.6rem;
+      color: white;
+      text-decoration: none;
+      &:hover {
+        color: white;
+      }
+    }
   }
 
   #root {
-    display: flex;
+    /* display: flex;
     align-items: flex-start;
     justify-content: center;
-    overflow: hidden;
-    background: #000000;
+    overflow: hidden; */
   }
 `
 

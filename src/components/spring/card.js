@@ -5,21 +5,24 @@ const background = require('../../assets/homeLogo/HomePage.jpg')
 
 const Container = styled.div`
     .card {
-        /* width: 80vw;
-        height: 49.5vw; */
-        width: 100vw;
-        height: 50vw;
-        /* border-radius: 5px; */
+        width: 75vw;
+        /* height: 61vw; */
+        height: 100vh;
+        max-width: 67rem;
+        /* max-height: 54.4rem; */
+        margin: 0 auto;
         background-image: url(${background});
         background-size: contain;
-        background-position: top center;
+        background-position: top 3rem center;
         background-repeat: no-repeat;
         box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
         transition: box-shadow 0.5s;
         will-change: transform;
-        /* border: 15px solid white; */
         &:hover {
             box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
+        }
+        @media( min-aspect-ratio: 4/3 ) {
+          max-height: 54.4rem;
         }
     }
 `
