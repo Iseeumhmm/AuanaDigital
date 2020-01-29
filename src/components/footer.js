@@ -17,7 +17,7 @@ export default (props) => {
     }
     return (
         <FooterContainer hidden={props.hidden} className="footer">
-            <h2 onClick={handleClick}>GET STARTED</h2>
+            <h2 ga-on="click" ga-event-category="GetStarted" onClick={handleClick}>GET STARTED</h2>
         </FooterContainer>
     )
 }

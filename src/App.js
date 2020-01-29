@@ -72,6 +72,14 @@ function App() {
         <Link to="/dynamic">Dynamic</Link>
       </nav> */}
       <Head>
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:title" content="Auana Digital" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Auana Digital Websites, Photography and Videography" />
+        <meta property="og:description" content="Auana Digital embodies a philosophy of drifting from convention when technologies exist to better cater to your audience." />
+        <meta property="og:url" content="https://testing.rickheffren.com" />
+        <meta property="og:image:secure_url" content="https://auana.ca/images/logo.jpg"/>
+        <title>Auana Digital</title>
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" as="style"/>
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" rel="stylesheet"/>
       </Head>

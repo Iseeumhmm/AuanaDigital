@@ -21,7 +21,6 @@ const Container = styled.div`
     height: 71rem;
     .spacer {
       height: 65rem;
-      /* max-height: 50rem; */
     }
   }
   @media( min-aspect-ratio: 6/5 ) {

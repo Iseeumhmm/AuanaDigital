@@ -121,7 +121,6 @@ const ContactContainer = styled.div`
 
 export default (props) => {
     const handleClose = () => {
-        console.log('close')
         props.close()
     }
     return (
@@ -145,14 +144,14 @@ export default (props) => {
             <p>Great photos and video grab attention, period.  There's a lot of forethought that goes into the creation of eye catching media, particularly if they're being used as website assets.  When we create assets for websites we need to consider the composition of each image or video.  The colours, framing and context of each photo or video has the potential to bring vibrance and life to a design.</p>
             <h2>Check out my personal social media accounts</h2>
             <div>
-                <a href="https://www.instagram.com/rick_heffren/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagram" /></a>
-                <a href="https://www.flickr.com/photos/iseeumhmm/" target="_blank" rel="noopener noreferrer"><img src={flickr} alt="flickr" /></a>
+                <a ga-on="click" ga-event-category="Instagram" href="https://www.instagram.com/rick_heffren/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagram" /></a>
+                <a ga-on="click" ga-event-category="Flickr" href="https://www.flickr.com/photos/iseeumhmm/" target="_blank" rel="noopener noreferrer"><img src={flickr} alt="flickr" /></a>
             </div>
           </div>
         </div>
         <div>
-          <a href="tel: 15197090562">(519) 709-0562</a>
-          <a href="mailto: rick@auana.ca">Rick@Auana.ca</a>
+          <a ga-on="click" ga-event-category="Phone" href="tel: 15197090562">(519) 709-0562</a>
+          <a ga-on="click" ga-event-category="Email" href="mailto: rick@auana.ca">Rick@Auana.ca</a>
         </div>
       </ContactContainer>
     )
