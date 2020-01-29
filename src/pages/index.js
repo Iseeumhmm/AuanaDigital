@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/spring/card';
 import styled, { keyframes } from 'styled-components'
+import Loader from '../components/HomePageContent/LoadingScreen'
 import Footer from '../components/footer'
 import Contact from '../components/HomePageContent/ContactContainer'
 
@@ -33,7 +34,7 @@ const Container = styled.div`
 `
 const animateOhana = keyframes`
   0%    { transform: scale(1);  }
-  7%    { transform: scale(2) translateY(15%);  }
+  7%    { transform: scale(1.8) translateY(15%);  }
   15%    { transform: scale(1.5) translateY(30%);  }
   80%   { transform: scale(1.5) translateY(30%);  }
   100%  { transform: scale(0) translateY(30%); display: none; }
@@ -65,6 +66,8 @@ const TextContainer = styled.div`
 export default () => {
   const [ clicked, setClicked ] = useState(false)
   const [ ohanaVisible, setOhanaVisible ] = useState(true)
+  const [ loading, setLoading ] = useState(true)
+
   const clickedHandler = () => {
     setClicked(true)
   }
@@ -74,27 +77,34 @@ export default () => {
   }
 
   useEffect(()=>{
-   const transition = document.getElementById('logo');
-   transition.onanimationend = () => {
-     setOhanaVisible(false)
-  };
+    const transition = document.getElementById('logo');
+    const loaderAnimation = document.getElementById('loader');
+    transition.onanimationend = () => {
+      setOhanaVisible(false)
+    };
+    loaderAnimation.onanimationend = () => {
+      setLoading(false)
+    };
+
   }, [])
 
   return (
-    <Container clicked={clicked}>
-      <Contact close={closeHandler} clicked={clicked}/>
-      <CardContainer visible={ohanaVisible} clicked={clicked}>
-        <Card className="card"/>
-      </CardContainer>
-        <div className="spacer"/>
-        <TextContainer hidden={clicked}>
-          <p>
-          Auana Digital embodies a philosophy of drifting from convention when technologies exist to better cater to your audience.
-          <br/><br/>
-          In Hawaiian, Auana means to wander or drift.  Hula 'Auana' incorporates modern instruments such as the ukulele to make the dance more entertaining to tourists, or in other words, customers.
-          </p>
-        </TextContainer>
-        <Footer clicked={clickedHandler} hidden={clicked}/>    
-    </Container>
+      <Container clicked={clicked}>
+        <Loader id="loader" loading={loading.toString()}/>
+        <Contact close={closeHandler} clicked={clicked}/>
+        <CardContainer visible={ohanaVisible} clicked={clicked}>
+          <Card className="card"/>
+        </CardContainer>
+          <div className="spacer"/>
+          <TextContainer hidden={clicked}>
+            <p>
+            Auana Digital embodies a philosophy of drifting from convention when technologies exist to better cater to your audience.
+            <br/><br/>
+            In Hawaiian, Auana means to wander or drift.  Hula 'Auana' incorporates modern instruments such as the ukulele to make the dance more entertaining to tourists, or in other words, customers.
+            </p>
+          </TextContainer>
+          <Footer clicked={clickedHandler} hidden={clicked}/>    
+      </Container>
   )
+
 }

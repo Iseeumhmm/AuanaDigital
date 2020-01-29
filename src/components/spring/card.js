@@ -21,9 +21,9 @@ const Container = styled.div`
         &:hover {
             box-shadow: 0px 30px 100px -10px rgba(0, 0, 0, 0.4);
         }
-        @media( min-aspect-ratio: 4/3 ) {
+        /* @media( min-aspect-ratio: 4/3 ) {
           max-height: 54.4rem;
-        }
+        } */
     }
 `
 
