@@ -6,7 +6,7 @@ import Footer from '../components/footer'
 import Contact from '../components/HomePageContent/ContactContainer'
 
 const Container = styled.div`
-  display: ${ ({display}) => display === 'true' ? "flex" : "none" } ;
+  display: flex ;
   position: ${ ({clicked}) => clicked ? "absolute" : "fixed" };
   height: 100%;
   width: 100vw;
@@ -66,11 +66,12 @@ const TextContainer = styled.div`
 export default () => {
   const [ clicked, setClicked ] = useState(false)
   const [ ohanaVisible, setOhanaVisible ] = useState(true)
-  const [ display, setDisplay ] = useState(null)
   const [ loading, setLoading ] = useState(true)
+  const [ loadDelay, setLoadDelay ] = useState(true)
+
 
   const clickedHandler = () => {
-    setClicked('true')
+    setClicked(true)
   }
   const closeHandler = () => {
     setClicked(false)
@@ -78,22 +79,24 @@ export default () => {
   }
 
   useEffect(()=>{
-    const transition = document.getElementById('logo');
-    const loaderAnimation = document.getElementById('loader');
     setInterval(() => {
-      setDisplay('true')
-    }, 1000);
-    transition.onanimationend = () => {
-      setOhanaVisible(false)
-    };
-    loaderAnimation.onanimationend = () => {
-      setLoading(false)
-    };
-
+      setLoadDelay(false)
+    }, 1500);
+    if (!loadDelay) {
+      const transition = document.getElementById('logo');
+      const loaderAnimation = document.getElementById('loader');
+      
+      transition.onanimationend = () => {
+        setOhanaVisible(false)
+      };
+      loaderAnimation.onanimationend = () => {
+        setLoading(false)
+      };
+    }
   }, [])
 
-  return (
-      <Container display={display} clicked={clicked}>
+  const content = (
+      <Container clicked={clicked}>
         <Loader id="loader" loading={loading.toString()}/>
         <Contact close={closeHandler} clicked={clicked}/>
         <CardContainer visible={ohanaVisible} clicked={clicked}>
@@ -110,5 +113,5 @@ export default () => {
           <Footer clicked={clickedHandler} hidden={clicked}/>    
       </Container>
   )
-
+    return loadDelay ? null : content
 }
