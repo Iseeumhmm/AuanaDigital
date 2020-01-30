@@ -133,15 +133,15 @@ export default (props) => {
         <div>
           <div>
             <h1>Websites</h1>
-            <p>Can you think of a website that you found remarkable? Designed so that it was unique and fresh, yet the navigation was intuitive. The layout was well structured, and pictures were carefully placed to supported the information on the page, making it easier to understand.<br /><br />
-            When a website can give you what you need without wasting your time, it’s efficient. If it can do this and be atheistically pleasing and maybe a little entertaining, it’s awesome!<br /><br />
-            As a website creator, auana has helped me to forge many skillsets and given me versatility. From digital design to photography, lending me a higher-level perspective of website development as a whole. </p>
+            <p>Can you think of a website that you found remarkable? Designed so that it was unique and fresh, yet the navigation was intuitive. The layout was well structured and pictures were carefully placed to supported the information on the page.<br /><br />
+            When a website can deliver the information you need without wasting your time, it’s efficient. If it can do this and be atheistically pleasing, and maybe a little entertaining, it’s awesome!<br /><br />
+            As a website creator, auana has helped me to forge many skillsets and given me versatility. From digital design to photography and videography, lending me a higher-level perspective of website development as a whole. </p>
           </div>
         </div>
         <div>
           <div>
             <h1>Photography &amp; Videography</h1>
-            <p>Great photos and video grab attention, period.  There's a lot of forethought that goes into the creation of eye catching media, particularly if they're being used as website assets.  When we create assets for websites we need to consider the composition of each image or video.  The colours, framing and context of each photo or video has the potential to bring vibrance and life to a design.</p>
+            <p>Great photos and video grab attention, period.  There's a lot of forethought that goes into the creation of eye catching media, particularly if they're being used as website content.  When we create assets for websites we need to consider the composition of each image or video.  The colours, framing and context of each photo or video has the potential to bring vibrance and life to a design.</p>
             <h2>Check out my personal social media accounts</h2>
             <div>
                 <a ga-on="click" ga-event-category="Instagram" href="https://www.instagram.com/rick_heffren/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagram" /></a>
