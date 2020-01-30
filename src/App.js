@@ -71,7 +71,7 @@ function App() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Auana Digital Websites, Photography and Videography" />
         <meta property="og:description" content="Auana Digital embodies a philosophy of drifting from convention when technologies exist to better cater to your audience." />
-        <meta property="og:url" content="https://testing.rickheffren.com" />
+        <meta property="og:url" content="https://auana.ca" />
          <meta property="og:image" content="http://auana.ca/images/logo.jpg"/>
          <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/logo.jpg"/>

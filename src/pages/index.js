@@ -45,10 +45,10 @@ const Spinner = styled.div`
   `
 const animateOhana = keyframes`
   0%    { transform: scale(1); }
-  7%    { transform: scale(1.8) translateY(15%); }
+  7%    { transform: scale(1.5) translateY(15%); }
   15%   { transform: scale(1.5) translateY(30%); }
   80%   { transform: scale(1.5) translateY(30%); }
-  100%  { transform: scale(0) translateY(30%); display: none; }
+  100%  { transform: scale(0) translateY(0); display: none; }
 `
 
 const CardContainer = styled.div`

@@ -11,9 +11,9 @@ const animateLogo = keyframes`
   100%  { transform: translateY(0);  }
 `
 const animateOhana2 = keyframes`
-  0%    { transform: scale(0);  }
-  80%   { transform: scale(0);  }
-  90%   { transform: scale(1);  }
+  0%    { transform: scale(0) translateY(-50%);  }
+  80%   { transform: scale(0) translateY(-50%);  }
+  90%   { transform: scale(1) translateY(0); }
   100%  { transform: scale(1);  }
 `
 const page2Right = keyframes`

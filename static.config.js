@@ -22,6 +22,7 @@ export default {
       // },
     ]
   },
+  siteRoot: 'https://auana.ca',
   plugins: [
     [
       require.resolve('react-static-plugin-source-filesystem'),
