@@ -59,7 +59,7 @@ const CardContainer = styled.div`
   transform: translateX(-50%);
   .card {
     animation-name: ${ ({clicked}) => clicked ? animateOhana : null };
-    animation-duration: 2s;
+    animation-duration: 1500ms;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
   }
