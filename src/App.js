@@ -66,6 +66,17 @@ function App() {
         <Link to="/dynamic">Dynamic</Link>
       </nav> */}
       <Head>
+        <script> 
+          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+          ga('create', 'UA-153961441-1', 'auto');
+          ga('require', 'eventTracker');
+          ga('require', 'outboundLinkTracker’);
+          ga('require', 'pageVisibilityTracker');
+          ga('require', 'urlChangeTracker');
+          ga('send', 'pageview');
+        </script>
+        <script async src="https://www.google-analytics.com/analytics.js"></script>
+        <script async src="https://auana.ca/js/autotrack.js"></script>
         <meta property="og:locale" content="en_CA" />
         <meta property="og:title" content="Auana Digital" />
         <meta property="og:type" content="website" />
