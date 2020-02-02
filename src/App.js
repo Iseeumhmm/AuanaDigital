@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactGA from 'react-ga';
 import { Root, Routes, addPrefetchExcludes, Head } from 'react-static'
 import { Router } from 'components/Router'
 import Dynamic from 'containers/Dynamic'
@@ -58,6 +59,28 @@ const GlobalStyle = createGlobalStyle`
 addPrefetchExcludes(['dynamic'])
 
 function App() {
+  const trackingId = "UA-153961441-1"; 
+  ReactGA.initialize(trackingId);
+  ReactGA.event({
+    category: "GetStarted",
+    action: "User pressed the click me button"
+  })
+  ReactGA.event({
+      category: "Instagram",
+      action: "Click the Instagram button"
+  })
+  ReactGA.event({
+      category: "Flickr",
+      action: "Click the Flickr button"
+  })
+  ReactGA.event({
+      category: "Phone",
+      action: "Click the Phone button"
+  })
+  ReactGA.event({
+      category: "Email",
+      action: "Click the Email button"
+  })
   return (
     <Root>
       {/* <nav>
@@ -66,17 +89,6 @@ function App() {
         <Link to="/dynamic">Dynamic</Link>
       </nav> */}
       <Head>
-        <script> 
-          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', 'UA-153961441-1', 'auto');
-          ga('require', 'eventTracker');
-          ga('require', 'outboundLinkTracker’);
-          ga('require', 'pageVisibilityTracker');
-          ga('require', 'urlChangeTracker');
-          ga('send', 'pageview');
-        </script>
-        <script async src="https://www.google-analytics.com/analytics.js"></script>
-        <script async src="https://auana.ca/js/autotrack.js"></script>
         <meta property="og:locale" content="en_CA" />
         <meta property="og:title" content="Auana Digital" />
         <meta property="og:type" content="website" />
