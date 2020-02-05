@@ -1,5 +1,7 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import Footer from '../Footer'
+import Navbar from '../Navigation/navbar'
 const logo = require('../../assets/homeLogo/LogoWhite.png')
 const ohana = require('../../assets/cat/ohana.jpg')
 const instagram = require('../../assets/icons/instagram.png')
@@ -38,7 +40,7 @@ const ContactContainer = styled.div`
   align-items: center;
   .logo {
     transform: translateY(-150%);
-    width: 20rem;
+    width: 17rem;
     height: 1rem;
     margin: 1rem 0 0;
     background-image: url(${logo});
@@ -124,6 +126,8 @@ export default (props) => {
         props.close()
     }
     return (
+      <React.Fragment>
+        <Navbar />
         <ContactContainer clicked={props.clicked}>
         <div id="logo" onClick={handleClose} className="logo" />
         <div>
@@ -149,11 +153,9 @@ export default (props) => {
             </div>
           </div>
         </div>
-        <div>
-          <a ga-on="click" ga-event-category="Phone" href="tel: 15197090562">(519) 709-0562</a>
-          <a ga-on="click" ga-event-category="Email" href="mailto: rick@auana.ca">Rick@Auana.ca</a>
-        </div>
+       <Footer />
       </ContactContainer>
+      </React.Fragment>
     )
 
 }

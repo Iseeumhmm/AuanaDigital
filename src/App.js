@@ -17,7 +17,9 @@ const theme = {
 }
 
 const GlobalStyle = createGlobalStyle`
-  html { font-size: 62.5%; }
+  html { 
+    font-size: 62.5%;
+  }
   html,
   body,
   #root {
@@ -30,6 +32,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    box-sizing: border-box;
     background: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -42,7 +45,11 @@ const GlobalStyle = createGlobalStyle`
     letter-spacing: 1px;
     line-height: 2.5rem;
     text-rendering: optimizeLegibility;
+    div {
+      box-sizing: inherit;
+    }
     p, h1, h2, h3 { margin: 0; }
+    p { font-size: 1.6rem; }
     a { 
       font-size: 1.6rem;
       color: white;

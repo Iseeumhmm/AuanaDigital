@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../components/spring/card';
 import styled, { keyframes } from 'styled-components'
 import Loader from '../components/HomePageContent/LoadingScreen'
-import Footer from '../components/footer'
+import Footer from '../components/click-me'
 import Contact from '../components/HomePageContent/ContactContainer'
 const spinner = require('../assets/icons/spinner.svg')
 
