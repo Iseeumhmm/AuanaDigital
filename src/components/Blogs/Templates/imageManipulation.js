@@ -4,7 +4,8 @@ import { WiredCard } from "wired-card"
 import { WiredSlider } from "wired-slider"
 import { WiredImage } from "wired-image"
 import { Link } from 'components/Router'
-import Footer from '../../../components/Footer'
+import Footer from '../../Footer'
+
 import Markdown from 'react-markdown'
 import styled from 'styled-components'
 import ohana from '../../../assets/homeLogo/HomePage.jpg'
@@ -67,7 +68,7 @@ const PageContainer = styled.div`
    flex-flow: column nowrap;
    justify-content: center;
    align-items: center;
-   padding-bottom: 2rem;
+   padding: 2rem 0;
  }
 `
 
