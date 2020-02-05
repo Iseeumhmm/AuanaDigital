@@ -4,7 +4,7 @@ import { WiredCard } from "wired-card"
 import { WiredSlider } from "wired-slider"
 import { WiredImage } from "wired-image"
 import { Link } from 'components/Router'
-// import Footer from '../../Footer'
+import Footer from '../../footer'
 
 import Markdown from 'react-markdown'
 import styled from 'styled-components'
@@ -106,7 +106,7 @@ export default function Blog() {
         <Markdown className="markdown" escapeHtml={false}>{post.body}</Markdown>
         
       </div>
-      {/* <Footer/> */}
+      <Footer/>
     </PageContainer>
   )
 }

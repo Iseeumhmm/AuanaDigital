@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
-import Footer from '../Footer'
+import Footer from '../footer'
 import Navbar from '../Navigation/navbar'
 const logo = require('../../assets/homeLogo/LogoWhite.png')
 const ohana = require('../../assets/cat/ohana.jpg')
