@@ -93,13 +93,17 @@ export default function Blog() {
   return (
     <PageContainer>
       <Head>
+        <meta property="og:locale" content="en_CA" />
+        <meta property="og:title" content="Website Interaction - Colours" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Auana Digital" />
         <meta property="og:description" content="We can, and should expect more from our web experience.  Check out this page where you can change the cat's eye colour with a slider!" />
         <meta property="og:url" content="https://auana.ca/blog/website-interaction/colour" />
         <meta property="og:image" content="http://auana.ca/images/ohana-blue.jpg"/>
         <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/ohana-blue.jpg"/>
-        <link rel="canonical" href="https://auana.ca/blog/website-interaction/colour" />
         <title>Auana Digital</title>
+        <link rel="canonical" href="https://auana.ca/blog/website-interaction/colour" />
       </Head>
       <NavBar black/>
       <div className="content_container">
