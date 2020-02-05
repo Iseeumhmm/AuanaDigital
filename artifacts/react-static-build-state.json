@@ -1,0 +1,61 @@
+{
+  "prefetchRate": 5,
+  "maxThreads": null,
+  "disableRoutePrefixing": false,
+  "outputFileRate": 100,
+  "extensions": [
+    ".js",
+    ".jsx"
+  ],
+  "minLoadTime": 200,
+  "disablePreload": false,
+  "disableRuntime": false,
+  "preloadPollInterval": 300,
+  "productionSourceMaps": false,
+  "entry": "index.js",
+  "siteRoot": "https://auana.ca",
+  "plugins": [
+    [
+      "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-source-filesystem/node.api.js",
+      {
+        "location": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/src/pages"
+      }
+    ],
+    "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-reach-router/browser.api.js",
+    "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-sitemap/dist/node.api.js",
+    "/Users/rickheffren/Documents/WebDevelopment/Auana_react"
+  ],
+  "paths": {
+    "ROOT": "/Users/rickheffren/Documents/WebDevelopment/Auana_react",
+    "SRC": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/src",
+    "DIST": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/dist",
+    "ASSETS": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/dist",
+    "PLUGINS": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/plugins",
+    "TEMP": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/tmp",
+    "ARTIFACTS": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/artifacts",
+    "PUBLIC": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/public",
+    "NODE_MODULES": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules",
+    "EXCLUDE_MODULES": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules",
+    "PACKAGE": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/package.json",
+    "HTML_TEMPLATE": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/dist/index.html",
+    "STATIC_DATA": "/Users/rickheffren/Documents/WebDevelopment/Auana_react/dist/staticData"
+  },
+  "basePath": "",
+  "publicPath": "https://auana.ca/",
+  "assetsPath": "",
+  "extractCssChunks": false,
+  "inlineCss": false,
+  "babelExcludes": [],
+  "devServer": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "terser": {
+    "terserOptions": {
+      "mangle": {},
+      "parse": {},
+      "compress": {},
+      "output": {}
+    }
+  }
+}

@@ -33,6 +33,7 @@ export default {
       },
       {
         path: '/blog',
+        template: `src/pages/404.js`,
         getData: () =>{ 
          return  ({posts})
         },
