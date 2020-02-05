@@ -27,6 +27,7 @@ position: relative;
       text-align: center;
       padding: 4rem 0 2rem;
     }
+    p { font-size: 2rem; }
     width: 100%;
     margin: auto;
     max-width: 65rem;
@@ -116,7 +117,6 @@ export default function Blog() {
         <wired-slider min="0" max="360"></wired-slider>
         <wired-image id="ohana" elevation="4" src={ohana}></wired-image>
         <Markdown className="markdown" escapeHtml={false}>{post.body}</Markdown>
-        
       </div>
       <Footer/>
     </PageContainer>

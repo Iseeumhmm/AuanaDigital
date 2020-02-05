@@ -49,7 +49,10 @@ const GlobalStyle = createGlobalStyle`
       box-sizing: inherit;
     }
     p, h1, h2, h3 { margin: 0; }
-    p { font-size: 1.6rem; }
+    p { 
+      font-size: 1.6rem; 
+      font-weight: 300;
+    }
     a { 
       font-size: 1.6rem;
       color: white;
@@ -106,8 +109,8 @@ function App() {
          <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/logo.jpg"/>
         <title>Auana Digital</title>
-        <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" as="style"/>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200&display=swap" rel="stylesheet"/>
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300&display=swap" as="style"/>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300&display=swap" rel="stylesheet"/>
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
