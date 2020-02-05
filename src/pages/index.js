@@ -90,17 +90,21 @@ export default () => {
   }
 
   useEffect(()=>{
+    let isSubscribed = true
     setInterval(() => {
       setLoadDelay(false)
       const transition = document.getElementById('logo');
       const loaderAnimation = document.getElementById('loader');
-      transition.onanimationend = () => {
-        setOhanaVisible(false)
-      };
-      loaderAnimation.onanimationend = () => {
-        setLoading(false)
-      };
+      if (isSubscribed) {
+        transition.onanimationend = () => {
+          setOhanaVisible(false)
+        };
+        loaderAnimation.onanimationend = () => {
+          setLoading(false)
+        };
+      }
       }, 1500);
+      return () => { isSubscribed = false }
   }, [])
 
   const content = (

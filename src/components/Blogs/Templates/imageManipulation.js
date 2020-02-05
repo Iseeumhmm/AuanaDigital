@@ -14,13 +14,15 @@ const logo = require('../../../assets/homeLogo/LogoBlack.png')
 
 
 const PageContainer = styled.div`
+position: relative;
   width: 100vw;
+  overflow-x: hidden;
+
   text-align: center;
   color: ${({ theme: {colorDarkGrey} }) => colorDarkGrey }; 
   background-color: ${({ theme: {colorLightGrey} }) => colorLightGrey }; 
   .content_container {
     position: relative;
-    overflow-x: hidden;
     h1 {
       text-align: center;
       padding: 4rem 0 2rem;
@@ -37,6 +39,7 @@ const PageContainer = styled.div`
   }
   wired-slider {
     --wired-slider-knob-color: #183AB4;
+    width: 90%;
     margin: 2rem 0;
   }
   #header_container {
@@ -80,6 +83,11 @@ export default function Blog() {
         document.querySelector('#header_container').style.filter = `hue-rotate(${event.detail.value}deg)`
         document.querySelector('blockquote').style.filter = `hue-rotate(${event.detail.value}deg)`
     })
+    return slider.removeEventListener('change', (event) => {
+      document.querySelector('#ohana').style.filter = `hue-rotate(${event.detail.value}deg)`
+      document.querySelector('#header_container').style.filter = `hue-rotate(${event.detail.value}deg)`
+      document.querySelector('blockquote').style.filter = `hue-rotate(${event.detail.value}deg)`
+  })
   }, [])
   const post  = useRouteData()
   return (
@@ -90,6 +98,7 @@ export default function Blog() {
         <meta property="og:image" content="http://auana.ca/images/ohana-blue.jpg"/>
         <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/ohana-blue.jpg"/>
+        <link rel="canonical" href="https://auana.ca/blog/website-interaction/colour" />
         <title>Auana Digital</title>
       </Head>
       <NavBar black/>
