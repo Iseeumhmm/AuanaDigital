@@ -103,7 +103,6 @@ export default function Blog() {
         <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/ohana-blue.jpg"/>
         <title>Auana Digital</title>
-        <link rel="canonical" href="https://auana.ca/blog/website-interaction/colour" />
       </Head>
       <NavBar black/>
       <div className="content_container">
