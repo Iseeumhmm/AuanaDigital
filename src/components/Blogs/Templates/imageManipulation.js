@@ -97,7 +97,7 @@ export default function Blog() {
         <meta property="og:title" content="Website Interaction - Colours" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Auana Digital" />
-        <meta property="og:description" content="We can, and should expect more from our web experience.  Check out this page where you can change the cat's eye colour with a slider!" />
+        <meta property="og:description" content="Change the cat's eye colour with a slider!  We can, and should expect more from our web experience." />
         <meta property="og:url" content="https://auana.ca/blog/website-interaction/colour" />
         <meta property="og:image" content="http://auana.ca/images/ohana-blue.jpg"/>
         <meta property="og:image:width" content="1920"/>
