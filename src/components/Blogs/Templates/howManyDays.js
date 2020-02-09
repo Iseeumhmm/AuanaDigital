@@ -4,13 +4,15 @@ import { WiredCard } from "wired-card"
 import { WiredSlider } from "wired-slider"
 import { WiredImage } from "wired-image"
 import { Link } from 'components/Router'
+// import '@vaadin/vaadin-date-picker';
 import Footer from '../../footer'
 import Markdown from 'react-markdown'
 import styled from 'styled-components'
 import ohana from '../../../assets/homeLogo/HomePage.jpg'
 import NavBar from '../../../components/Navigation/navbar'
+// import Odometer from "../../odometer.js"
+// import "../../odometer.css"
 const logo = require('../../../assets/homeLogo/LogoBlack.png')
-
 
 const PageContainer = styled.div`
 position: relative;
@@ -41,6 +43,9 @@ position: relative;
     --wired-slider-knob-color: #183AB4;
     width: 90%;
     margin: 2rem 0;
+  }
+  .odometer {
+    font-size: 3.2rem;
   }
   #header_container {
     margin: 1rem auto 2rem;
@@ -74,21 +79,45 @@ position: relative;
    padding: 2rem 0;
  }
 `
+const betweenDates = (date) => {
+    var today = new Date(); 
+    var dateInput = new Date(date); 
 
+    let Difference_In_Time = null
+    today < dateInput ? Difference_In_Time = dateInput.getTime() - today.getTime() : Difference_In_Time = today.getTime() - dateInput.getTime()
+      
+    // To calculate the no. of days between two dates 
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24 *365.5); 
+      
+    //To display the final no. of days (result) 
+    console.log("Total number of days between dates  <br>"
+               + today + "<br> and <br>" 
+               + dateInput + " is: <br> " 
+               + Difference_In_Days); 
+    return Math.round(Difference_In_Days * 10)
+  
+}
 
 export default function Blog() {
   useEffect(() => {
-      const slider = document.querySelector('wired-slider')
-      slider.addEventListener('change', (event) => {
-        document.querySelector('#ohana').style.filter = `hue-rotate(${event.detail.value}deg)`
-        document.querySelector('#header_container').style.filter = `hue-rotate(${event.detail.value}deg)`
-        document.querySelector('blockquote').style.filter = `hue-rotate(${event.detail.value}deg)`
-    })
-    return slider.removeEventListener('change', (event) => {
-      document.querySelector('#ohana').style.filter = `hue-rotate(${event.detail.value}deg)`
-      document.querySelector('#header_container').style.filter = `hue-rotate(${event.detail.value}deg)`
-      document.querySelector('blockquote').style.filter = `hue-rotate(${event.detail.value}deg)`
-  })
+  // var el = document.querySelector('#odometer');
+  // const od = new Odometer({
+  //   el: el,
+  //   value: 0,
+
+  //   // Any option (other than auto and selector) can be passed in here
+  //   format: '',
+  //   theme: 'car'
+  // });
+  // // setInterval(() => {
+  // //   od.update(555)
+  // // }, 1000) 
+  // customElements.whenDefined('vaadin-date-picker').then(function() {
+  //   var datepicker = document.querySelector('vaadin-date-picker');
+  //   datepicker.addEventListener( 'change', (e) => {
+  //     od.update(betweenDates(datepicker.value))
+  //   })
+  // })
   }, [])
   const post  = useRouteData()
   return (
@@ -104,6 +133,7 @@ export default function Blog() {
         <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/ohana-blue.jpg"/>
         <title>Auana Digital</title>
+      
       </Head>
       <NavBar black/>
       <div className="content_container">
@@ -113,9 +143,12 @@ export default function Blog() {
         </wired-card>
         <wired-card elevation="3">
           <h2>{post.subtitle}</h2>
+          <vaadin-date-picker label="Important day" placeholder="Past or Future" />
         </wired-card>
-        <wired-slider min="0" max="360"></wired-slider>
-        <wired-image id="ohana" elevation="4" src={ohana}></wired-image>
+        
+{/* <div id="odometer" className="odometer"></div> */}
+        {/* <wired-slider min="0" max="360"></wired-slider>
+        <wired-image id="ohana" elevation="4" src={ohana}></wired-image> */}
         <Markdown className="markdown" escapeHtml={false}>{post.body}</Markdown>
       </div>
       <Footer/>

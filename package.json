@@ -6,13 +6,16 @@
     "stage": "react-static build --staging",
     "build": "react-static build",
     "analyze": "react-static build --analyze",
-    "serve": "serve dist -p 3000"
+    "serve": "serve dist -p 3000",
+    "postinstall": "vendor-copy"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@types/react": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
+    "@vaadin/vaadin-date-picker": "^4.0.6",
+    "@webcomponents/webcomponentsjs": "^2.4.1",
     "autotrack": "^2.4.1",
     "axios": "^0.19.0",
     "eslint-plugin-react-hooks": "1.x",
@@ -30,6 +33,7 @@
     "react-static-plugin-source-filesystem": "^7.2.0",
     "styled-components": "^5.0.0",
     "typescript": "^3.7.5",
+    "vendor-copy": "^2.0.0",
     "wired-elements": "^2.0.0"
   },
   "devDependencies": {
@@ -42,5 +46,15 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "serve": "^11.1.0"
-  }
+  },
+  "vendorCopy": [
+    {
+      "from": "node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js",
+      "to": "public/vendor/custom-elements-es5-adapter.js"
+    },
+    {
+      "from": "node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js",
+      "to": "public/vendor/webcomponents-bundle.js"
+    }
+  ]
 }

@@ -91,6 +91,8 @@ function App() {
       category: "Email",
       action: "Click the Email button"
   })
+
+  
   return (
     <Root>
       {/* <nav>
@@ -111,6 +113,8 @@ function App() {
         <title>Auana Digital</title>
         <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300&display=swap" as="style"/>
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300&display=swap" rel="stylesheet"/>
+        
+   
       </Head>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
