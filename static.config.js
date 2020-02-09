@@ -7,6 +7,8 @@ export default {
   Document: ({ Html, Head, Body, children, siteData, renderMeta }) => (
     <Html>
       <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script src="/vendor/webcomponents-bundle.js"></script>
         <script src="/vendor/custom-elements-es5-adapter.js"></script>
       </Head>
