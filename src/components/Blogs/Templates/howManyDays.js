@@ -18,7 +18,8 @@ const PageContainer = styled.div`
 position: relative;
   width: 100vw;
   overflow-x: hidden;
-
+  max-width: 100vw;
+  transform: scale(1) !important;
   text-align: center;
   color: ${({ theme: {colorDarkGrey} }) => colorDarkGrey }; 
   background-color: ${({ theme: {colorLightGrey} }) => colorLightGrey }; 
