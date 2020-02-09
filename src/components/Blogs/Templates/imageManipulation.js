@@ -7,7 +7,7 @@ import { Link } from 'components/Router'
 import Footer from '../../footer'
 import Markdown from 'react-markdown'
 import styled from 'styled-components'
-import ohana from '../../../assets/homeLogo/HomePage.jpg'
+import ohana from '../../../assets/homeLogo/WebInteractionColours.jpg'
 import NavBar from '../../../components/Navigation/navbar'
 const logo = require('../../../assets/homeLogo/LogoBlack.png')
 

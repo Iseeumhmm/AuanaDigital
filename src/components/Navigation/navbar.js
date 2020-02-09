@@ -24,8 +24,8 @@ const StyledMenu = styled.nav`
     color: ${({theme: {colorLightGrey}}) => colorLightGrey};
     background-image: linear-gradient(to left, violet, indigo, blue, green, orange, red);
   }
-}
-  }
+
+  
   @media (max-width: 576px) {
     background: rgba(255,255,255, 0.99);
     padding: 0;
@@ -33,6 +33,9 @@ const StyledMenu = styled.nav`
     }
 
   a {
+    &:hover {
+      color: ${({theme: {colorDarkGrey}}) => colorDarkGrey};
+    }
     &:first-child {
         margin-top: 5rem;
     }

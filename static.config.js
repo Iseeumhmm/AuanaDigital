@@ -40,10 +40,10 @@ export default {
       },
       {
         "id": "days",
-        "template": "howManyDays.js",
+        "template": "DateOdometer.js",
         "date" : "",
-        "title": "Website Interaction & Colour",
-        "subtitle": "Move the slider below to change Ohana's eye colour!",
+        "title": "Website Interaction & Date Picker",
+        "subtitle": "Pick a date from the past or future",
         "body": `<h1 id="cool-eh">Cool Eh?</h1>
         <p>We can, and should expect more from our web experience.  We can use the technologies to interact with our visitors in ways we could have only dreamed about a short time ago. <br /><br />
         <strong>Practical use case:</strong> coloured eye contact sales? Maybe, but this example is really meant to show the powers we can harness from behind the scenes.

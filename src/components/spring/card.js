@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components'
-const background = require('../../assets/homeLogo/HomePage.jpg')
+const background = require('../../assets/homeLogo/HomeLogo.jpg')
 
 const Container = styled.div`
     .card {

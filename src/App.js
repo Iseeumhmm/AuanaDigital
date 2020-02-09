@@ -11,7 +11,7 @@ const theme = {
   // Colours
 
   colorBase: "#183AB4",
-  colorHighlight: "#FFB305",
+  colorHighlight: "#169A64",
   colorDarkGrey: "#373b47",
   colorLightGrey: "#f9f9fa"
 }

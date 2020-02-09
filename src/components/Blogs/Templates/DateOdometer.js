@@ -8,7 +8,7 @@ import '@vaadin/vaadin-date-picker';
 import Footer from '../../footer'
 import Markdown from 'react-markdown'
 import styled from 'styled-components'
-import ohana from '../../../assets/homeLogo/HomePage.jpg'
+import ohana from '../../../assets/homeLogo/HomeLogo.jpg'
 import NavBar from '../../../components/Navigation/navbar'
 import Odometer from "../../odometer.js"
 import "../../odometer.css"
@@ -36,9 +36,23 @@ position: relative;
     padding: 0 2rem;
   }
   wired-card {
-    display: block;
     padding: 2rem;
     text-align: left;
+    vaadin-date-picker {
+      font-size: 1.6rem;
+    }
+    & > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    & > div > div {
+      p {
+        font-size: 1.6rem !important;
+        font-weight: bold;
+      }
+      text-align: center;
+    }
   }
   wired-slider {
     --wired-slider-knob-color: #183AB4;
@@ -63,7 +77,7 @@ position: relative;
     text-align: left;
   }
   blockquote {
-    border-left: 5px solid #CA9F51;
+    border-left: 5px solid ${({ theme: {colorHighlight} }) => colorHighlight };
     padding-left: 2rem;
     margin: 2rem 1rem;
   }
@@ -139,17 +153,19 @@ export default function Blog() {
       <NavBar black/>
       <div className="content_container">
       <img src={logo} className="logo" alt="Auana Logo" />
-        <wired-card fill="#CA9F51" id="header_container" elevation="3">
+        <wired-card fill="#169A64" id="header_container" elevation="3">
           <h1>{post.title}</h1>
         </wired-card>
         <wired-card elevation="3">
           <h2>{post.subtitle}</h2>
-          <vaadin-date-picker label="Important day" placeholder="Past or Future" />
+          <div>
+            <vaadin-date-picker label="Important day" placeholder="Past or Future" />
+            <div>
+              <p>DAYS</p>
+              <div id="odometer" className="odometer"></div>
+            </div>
+          </div>
         </wired-card>
-        
-<div id="odometer" className="odometer"></div>
-        {/* <wired-slider min="0" max="360"></wired-slider>
-        <wired-image id="ohana" elevation="4" src={ohana}></wired-image> */}
         <Markdown className="markdown" escapeHtml={false}>{post.body}</Markdown>
       </div>
       <Footer/>
