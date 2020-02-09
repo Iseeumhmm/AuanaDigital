@@ -4,14 +4,14 @@ import { WiredCard } from "wired-card"
 import { WiredSlider } from "wired-slider"
 import { WiredImage } from "wired-image"
 import { Link } from 'components/Router'
-// import '@vaadin/vaadin-date-picker';
+import '@vaadin/vaadin-date-picker';
 import Footer from '../../footer'
 import Markdown from 'react-markdown'
 import styled from 'styled-components'
 import ohana from '../../../assets/homeLogo/HomePage.jpg'
 import NavBar from '../../../components/Navigation/navbar'
-// import Odometer from "../../odometer.js"
-// import "../../odometer.css"
+import Odometer from "../../odometer.js"
+import "../../odometer.css"
 const logo = require('../../../assets/homeLogo/LogoBlack.png')
 
 const PageContainer = styled.div`
@@ -100,24 +100,24 @@ const betweenDates = (date) => {
 
 export default function Blog() {
   useEffect(() => {
-  // var el = document.querySelector('#odometer');
-  // const od = new Odometer({
-  //   el: el,
-  //   value: 0,
+  var el = document.querySelector('#odometer');
+  const od = new Odometer({
+    el: el,
+    value: 0,
 
-  //   // Any option (other than auto and selector) can be passed in here
-  //   format: '',
-  //   theme: 'car'
-  // });
-  // // setInterval(() => {
-  // //   od.update(555)
-  // // }, 1000) 
-  // customElements.whenDefined('vaadin-date-picker').then(function() {
-  //   var datepicker = document.querySelector('vaadin-date-picker');
-  //   datepicker.addEventListener( 'change', (e) => {
-  //     od.update(betweenDates(datepicker.value))
-  //   })
-  // })
+    // Any option (other than auto and selector) can be passed in here
+    format: '',
+    theme: 'car'
+  });
+  // setInterval(() => {
+  //   od.update(555)
+  // }, 1000) 
+  customElements.whenDefined('vaadin-date-picker').then(function() {
+    var datepicker = document.querySelector('vaadin-date-picker');
+    datepicker.addEventListener( 'change', (e) => {
+      od.update(betweenDates(datepicker.value))
+    })
+  })
   }, [])
   const post  = useRouteData()
   return (
@@ -146,7 +146,7 @@ export default function Blog() {
           <vaadin-date-picker label="Important day" placeholder="Past or Future" />
         </wired-card>
         
-{/* <div id="odometer" className="odometer"></div> */}
+<div id="odometer" className="odometer"></div>
         {/* <wired-slider min="0" max="360"></wired-slider>
         <wired-image id="ohana" elevation="4" src={ohana}></wired-image> */}
         <Markdown className="markdown" escapeHtml={false}>{post.body}</Markdown>
