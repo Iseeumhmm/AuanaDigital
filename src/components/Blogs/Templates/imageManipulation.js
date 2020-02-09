@@ -22,6 +22,8 @@ position: relative;
   color: ${({ theme: {colorDarkGrey} }) => colorDarkGrey }; 
   background-color: ${({ theme: {colorLightGrey} }) => colorLightGrey }; 
   .content_container {
+    overflow-x: hidden;
+
     position: relative;
     h1 {
       text-align: center;
