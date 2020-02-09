@@ -76,7 +76,7 @@ export default {
       }
     ]
   },
-  siteRoot: 'https://auana.rickheffren.ca',
+  siteRoot: 'https://auana.rickheffren.com',
   plugins: [
     [
       require.resolve('react-static-plugin-source-filesystem'),
