@@ -2,17 +2,34 @@ import React, {useEffect} from 'react'
 import { useRouteData, Head } from 'react-static'
 import { WiredCard } from "wired-card"
 import { WiredSlider } from "wired-slider"
-import { WiredImage } from "wired-image"
 import { Link } from 'components/Router'
 import '@vaadin/vaadin-date-picker';
 import Footer from '../../footer'
 import Markdown from 'react-markdown'
-import styled from 'styled-components'
-import ohana from '../../../assets/homeLogo/HomeLogo.jpg'
+import styled, { keyframes } from 'styled-components'
 import NavBar from '../../../components/Navigation/navbar'
 import Odometer from "../../odometer.js"
 import "../../odometer.css"
-const logo = require('../../../assets/homeLogo/LogoBlack.png')
+import logo from '../../../assets/homeLogo/LogoBlack.png'
+import smoke from '../../../assets/effects/smoke.png'
+
+const animateOdometer = keyframes`
+0%    { transform: translate(0) scale(1) rotate(0deg) }
+30%   { transform: rotate(0deg) }
+35%   { transform: translateX(-5rem) scale(2.5) rotate(-10deg) }
+40%   { transform: translateX(-5rem) scale(2.5) rotate(10deg) }
+45%   { transform: translateX(-5rem) scale(2.5) rotate(-10deg) }
+50%   { transform: translateX(-5rem) scale(2.5) rotate(10deg) }
+55%   { transform: translateX(-5rem) scale(2.5) rotate(-10deg) }
+60%   { transform: translateX(-5rem) scale(2.5) rotate(10deg) }
+70%   { transform: translate(0) scale(1) rotate(0deg) }
+85%   { transform: translate(0) scale(1.25) rotate(0deg) }
+100%  { transform: translate(0) scale(1) rotate(0deg) }
+`
+const animateSmoke = keyframes`
+0%    { transform: translateX(-50%) scale(1); opacity: 1; }
+100%   { transform: translateX(-50%) scale(3.5); opacity: 0; }
+`
 
 const PageContainer = styled.div`
 position: relative;
@@ -59,8 +76,25 @@ position: relative;
     width: 90%;
     margin: 2rem 0;
   }
+  .effect_container {
+    position: relative;
+  }
   .odometer {
     font-size: 3.2rem;
+  }
+  .smoke {
+    position: absolute;
+    opacity: 0;
+    width: 10rem;
+    left: 50%;
+    top: -15px;
+    transform: translateX(-50%);
+  }
+  .animateOdometer {
+    animation: ${animateOdometer} 1s 0s linear forwards;
+  }
+  .animateSmoke {
+    animation: ${animateSmoke} 500ms 750ms linear forwards;
   }
   #header_container {
     margin: 1rem auto 2rem;
@@ -97,19 +131,36 @@ position: relative;
 const betweenDates = (date) => {
     var today = new Date(); 
     var dateInput = new Date(date); 
-
+    dateInput.setHours(dateInput.getHours() + 5)
     let Difference_In_Time = null
-    today < dateInput ? Difference_In_Time = dateInput.getTime() - today.getTime() : Difference_In_Time = today.getTime() - dateInput.getTime()
+    let difference ;
+    today < dateInput ? Difference_In_Time = dateInput.getTime() - today.getTime() : Difference_In_Time = today.getTime() - dateInput.getTime();
+    let timeInterval 
+    if (Difference_In_Time < 2678400000 ) {
+      timeInterval = 'days'
+      console.log('Days: ', Difference_In_Time / (1000 * 3600 * 24))
+      difference = (Difference_In_Time / (1000 * 3600 * 24)) 
+    } else if (Difference_In_Time < 31557600000 ) {
+      timeInterval = 'weeks'
+      difference = (Difference_In_Time / (1000 * 3600 * 24)) / 7
+    } else {
+      timeInterval = 'years'
+      difference = Difference_In_Time / (1000 * 3600 * 24 * 365.25); 
+    }
+    console.log('Time Interval: ', timeInterval)
+    console.log('Time now hour: ', today.getHours())
+    console.log('Time now minute: ', today.getMinutes())
+    console.log('Time now day: ', today.toLocaleDateString())
+    console.log('Time picked hour: ', dateInput.getHours())
+    console.log('Time picked minute: ', dateInput.getMinutes())
+    console.log('Time picked day: ', dateInput.toLocaleDateString())
+
       
     // To calculate the no. of days between two dates 
-    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24 *365.5); 
+    // var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24 * 365.5); 
       
-    //To display the final no. of days (result) 
-    console.log("Total number of days between dates  <br>"
-               + today + "<br> and <br>" 
-               + dateInput + " is: <br> " 
-               + Difference_In_Days); 
-    return Math.round(Difference_In_Days * 10)
+    
+    return difference * 10
   
 }
 
@@ -130,7 +181,17 @@ export default function Blog() {
   customElements.whenDefined('vaadin-date-picker').then(function() {
     var datepicker = document.querySelector('vaadin-date-picker');
     datepicker.addEventListener( 'change', (e) => {
-      od.update(betweenDates(datepicker.value))
+      const odometer = document.querySelector('#odometer')
+      const smoke = document.querySelector('.smoke')
+      odometer.classList.add('animateOdometer')
+      smoke.classList.add('animateSmoke')
+      odometer.onanimationend = () => {
+        od.update(betweenDates(datepicker.value))
+        odometer.classList.remove('animateOdometer')
+      }
+      smoke.onanimationend = () => {
+        smoke.classList.remove('animateSmoke')
+      }
     })
   })
   }, [])
@@ -162,7 +223,10 @@ export default function Blog() {
             <vaadin-date-picker label="Important day" placeholder="Past or Future" />
             <div>
               <p>DAYS</p>
-              <div id="odometer" className="odometer"></div>
+              <div className="effect_container">
+                <div id="odometer" className="odometer"></div>
+                <img className="smoke" src={smoke} alt="smoke effect"/>
+              </div>
             </div>
           </div>
         </wired-card>

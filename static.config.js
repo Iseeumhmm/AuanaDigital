@@ -39,7 +39,7 @@ export default {
       Thanks for stopping by!</p>`
       },
       {
-        "id": "days",
+        "id": "date-picker",
         "template": "DateOdometer.js",
         "date" : "",
         "title": "Website Interaction & Date Picker",
