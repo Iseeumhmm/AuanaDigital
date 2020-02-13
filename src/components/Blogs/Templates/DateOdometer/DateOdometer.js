@@ -203,7 +203,7 @@ export default function Blog() {
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Auana Digital" />
         <meta property="og:description" content="Pick a date and watch the odometer spin" />
-        <meta property="og:url" content="https://auana.ca/blog/website-interaction/date-picker/odometer" />
+        <meta property="og:url" content="https://auana.ca/blog/website-interaction/date-picker-odometer" />
         <meta property="og:image" content="http://auana.ca/images/date-picker.jpg"/>
         <meta property="og:image:width" content="1920"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/date-picker.jpg"/>
