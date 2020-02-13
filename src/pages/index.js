@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga'
 import Card from '../components/spring/card';
 import styled, { keyframes } from 'styled-components'
 import Loader from '../components/HomePageContent/LoadingScreen'
@@ -47,8 +48,8 @@ const Spinner = styled.div`
 const animateOhana = keyframes`
   0%    { transform: scale(1); }
   7%    { transform: scale(1.25) translateY(15%); }
-  15%   { transform: scale(1.5) translateY(30%); }
-  80%   { transform: scale(1.5) translateY(30%); }
+  15%   { transform: scale(1.5) translateY(25%); }
+  80%   { transform: scale(1.5) translateY(25%); }
   100%  { transform: scale(0) translateY(0); display: none; }
 `
 
@@ -91,8 +92,11 @@ export default () => {
   }
 
   useEffect(()=>{
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname)
+    let interval
     let isSubscribed = true
-    setInterval(() => {
+    interval = setInterval(() => {
       setLoadDelay(false)
       const transition = document.getElementById('logo');
       const loaderAnimation = document.getElementById('loader');
@@ -105,7 +109,10 @@ export default () => {
         };
       }
       }, 1500);
-      return () => { isSubscribed = false }
+      return () => { 
+        isSubscribed = false 
+        clearInterval(interval)
+      }
   }, [])
 
   const content = (

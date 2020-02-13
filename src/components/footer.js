@@ -1,7 +1,9 @@
 import React from 'react'
+import Event from '../components/AnalyticsEvents'
+
 export default () => (
     <div className="footer">
-        <a ga-on="click" ga-event-category="Phone" href="tel: 15197090562">(519) 709-0562</a>
-        <a ga-on="click" ga-event-category="Email" href="mailto: rick@auana.ca">Rick@Auana.ca</a>
+        <a onClick={ ()=> Event("Home - Phone") } href="tel: 15197090562">(519) 709-0562</a>
+        <a onClick={ ()=> Event("Home - Email") } href="mailto: rick@auana.ca">Rick@Auana.ca</a>
     </div>
 )
