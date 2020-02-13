@@ -12,6 +12,6 @@ To me these details matter and I think they make the users experience more enter
 </blockquote>
 I hope you enjoyed messing around with a bunch of dates.  It actually made me feel pretty old lol.
 <br /><br />
-Hopefully I can get another post together in the next week or so.  I'll try and think of something entertaining and obviously geeky to showcase the awesomeness we can create in modern websites.
+I've already got some ideas for something that's entertaining and obviously geeky for the next post.  Stay tuned.
 <br /><br />
-Thanks again for checking out my post!
+Thanks again for stopping by!

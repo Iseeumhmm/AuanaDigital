@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Event from '../AnalyticsEvents'
 import styled from 'styled-components'
 import { Link } from 'components/Router'
 
@@ -60,7 +61,8 @@ const Menu = ({ open, setOpen }) => {
   return (
     <StyledMenu open={open}>
         <Link to="/" onClick={() => setOpen(!open)}>Home</Link>
-        <Link to="/blog/website-interaction/colour" onClick={() => setOpen(!open)}>Interaction with <span>Colours</span></Link>
+        <Link to="/blog/website-interaction/colour" onClick={() => {setOpen(!open); Event("Menu - Colours")}}>Interaction with <span>Colours</span></Link>
+        <Link to="/blog/website-interaction/date-picker" onClick={() => {setOpen(!open); Event("Menu - Date Picker")}}>Interaction - Date Picker</Link>
     </StyledMenu>
   )
 }
