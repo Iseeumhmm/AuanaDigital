@@ -1,17 +1,20 @@
-import React, {useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouteData, Head } from 'react-static'
+import ReactGA from 'react-ga'
+import Event from '../../../AnalyticsEvents'
 import { WiredCard } from "wired-card"
 import { WiredSlider } from "wired-slider"
 import { Link } from 'components/Router'
 import '@vaadin/vaadin-date-picker';
-import Footer from '../../footer'
+import Footer from '../../../footer'
 import Markdown from 'react-markdown'
 import styled, { keyframes } from 'styled-components'
-import NavBar from '../../../components/Navigation/navbar'
-import Odometer from "../../odometer.js"
-import "../../odometer.css"
-import logo from '../../../assets/homeLogo/LogoBlack.png'
-import smoke from '../../../assets/effects/smoke.png'
+import NavBar from '../../../Navigation/navbar'
+import Odometer from "./odometer"
+import "./odometer.css"
+import logo from '../../../../assets/homeLogo/LogoBlack.png'
+import smoke from '../../../../assets/effects/smoke.png'
+import contentMD from './date-picker.md'
 
 const animateOdometer = keyframes`
 0%    { transform: translate(0) scale(1) rotate(0deg) }
@@ -48,6 +51,7 @@ position: relative;
     }
     p { font-size: 2rem; }
     width: 100%;
+    font-size: 2rem;
     margin: auto;
     max-width: 65rem;
     padding: 0 2rem;
@@ -65,7 +69,7 @@ position: relative;
     }
     & > div > div {
       p {
-        font-size: 1.6rem !important;
+        
         font-weight: bold;
       }
       text-align: center;
@@ -129,43 +133,39 @@ position: relative;
  }
 `
 const betweenDates = (date) => {
+    let unit = "DAYS"
     var today = new Date(); 
     var dateInput = new Date(date); 
     dateInput.setHours(dateInput.getHours() + 5)
     let Difference_In_Time = null
     let difference ;
     today < dateInput ? Difference_In_Time = dateInput.getTime() - today.getTime() : Difference_In_Time = today.getTime() - dateInput.getTime();
-    let timeInterval 
     if (Difference_In_Time < 2678400000 ) {
-      timeInterval = 'days'
-      console.log('Days: ', Difference_In_Time / (1000 * 3600 * 24))
       difference = (Difference_In_Time / (1000 * 3600 * 24)) 
     } else if (Difference_In_Time < 31557600000 ) {
-      timeInterval = 'weeks'
+      unit="WEEKS"
       difference = (Difference_In_Time / (1000 * 3600 * 24)) / 7
     } else {
-      timeInterval = 'years'
+      unit="YEARS"
       difference = Difference_In_Time / (1000 * 3600 * 24 * 365.25); 
     }
-    console.log('Time Interval: ', timeInterval)
-    console.log('Time now hour: ', today.getHours())
-    console.log('Time now minute: ', today.getMinutes())
-    console.log('Time now day: ', today.toLocaleDateString())
-    console.log('Time picked hour: ', dateInput.getHours())
-    console.log('Time picked minute: ', dateInput.getMinutes())
-    console.log('Time picked day: ', dateInput.toLocaleDateString())
 
-      
-    // To calculate the no. of days between two dates 
-    // var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24 * 365.5); 
-      
-    
-    return difference * 10
+    return [ unit, (difference * 10) ]
   
 }
 
 export default function Blog() {
+  const [ timeUnit, setTimeUnit ] = useState("")
+  const [ content, setContent ] = useState("")
+
   useEffect(() => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname)
+
+  fetch(contentMD).then((response) => response.text().then( (text) => {
+    setContent(text)
+  }))
+
   var el = document.querySelector('#odometer');
   const od = new Odometer({
     el: el,
@@ -175,18 +175,17 @@ export default function Blog() {
     format: '',
     theme: 'car'
   });
-  // setInterval(() => {
-  //   od.update(555)
-  // }, 1000) 
   customElements.whenDefined('vaadin-date-picker').then(function() {
     var datepicker = document.querySelector('vaadin-date-picker');
     datepicker.addEventListener( 'change', (e) => {
+      const dateUnits = betweenDates(datepicker.value)
+      setTimeUnit(dateUnits[0])
       const odometer = document.querySelector('#odometer')
       const smoke = document.querySelector('.smoke')
       odometer.classList.add('animateOdometer')
       smoke.classList.add('animateSmoke')
       odometer.onanimationend = () => {
-        od.update(betweenDates(datepicker.value))
+        od.update(dateUnits[1])
         odometer.classList.remove('animateOdometer')
       }
       smoke.onanimationend = () => {
@@ -207,9 +206,11 @@ export default function Blog() {
         <meta property="og:url" content="https://auana.ca/blog/website-interaction/colour" />
         <meta property="og:image" content="http://auana.ca/images/ohana-blue.jpg"/>
         <meta property="og:image:width" content="1920"/>
+        <meta property="og:video" content="https://auana.ca/images/date-picker.mp4"/>
+        <meta property="og:video:width" content="1920"/>
+        <meta property="og:video:height" content="1080"/>
         <meta property="og:image:secure_url" content="https://auana.ca/images/ohana-blue.jpg"/>
         <title>Auana Digital</title>
-      
       </Head>
       <NavBar black/>
       <div className="content_container">
@@ -220,9 +221,9 @@ export default function Blog() {
         <wired-card elevation="3">
           <h2>{post.subtitle}</h2>
           <div>
-            <vaadin-date-picker label="Important day" placeholder="Past or Future" />
+            <vaadin-date-picker onClick={ ()=> Event("Date Picker - Picked date") } label="Important day" placeholder="Past or Future" />
             <div>
-              <p>DAYS</p>
+              <p>{timeUnit}</p>
               <div className="effect_container">
                 <div id="odometer" className="odometer"></div>
                 <img className="smoke" src={smoke} alt="smoke effect"/>
@@ -230,7 +231,7 @@ export default function Blog() {
             </div>
           </div>
         </wired-card>
-        <Markdown className="markdown" escapeHtml={false}>{post.body}</Markdown>
+        <Markdown className="markdown" escapeHtml={false}>{content}</Markdown>
       </div>
       <Footer/>
     </PageContainer>

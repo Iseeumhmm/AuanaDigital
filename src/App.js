@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
-    background: #000000;
+    background: #010101;
   }
 
   body {
@@ -61,38 +61,21 @@ const GlobalStyle = createGlobalStyle`
         color: white;
       }
     }
+    blockquote {
+    padding-left: 2rem;
+    margin: 2rem 1rem;
+    font-size: 2rem;
+  }
   }
 
 `
 
 // Any routes that start with 'dynamic' will be treated as non-static routes
 addPrefetchExcludes(['dynamic'])
+const trackingId = "UA-153961441-1"; 
+ReactGA.initialize(trackingId);
 
 function App() {
-  const trackingId = "UA-153961441-1"; 
-  ReactGA.initialize(trackingId);
-  ReactGA.event({
-    category: "GetStarted",
-    action: "User pressed the click me button"
-  })
-  ReactGA.event({
-      category: "Instagram",
-      action: "Click the Instagram button"
-  })
-  ReactGA.event({
-      category: "Flickr",
-      action: "Click the Flickr button"
-  })
-  ReactGA.event({
-      category: "Phone",
-      action: "Click the Phone button"
-  })
-  ReactGA.event({
-      category: "Email",
-      action: "Click the Email button"
-  })
-
-  
   return (
     <Root>
       {/* <nav>

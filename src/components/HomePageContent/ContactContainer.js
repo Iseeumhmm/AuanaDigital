@@ -1,4 +1,5 @@
 import React from 'react'
+import Event from '../AnalyticsEvents'
 import styled, { keyframes } from 'styled-components'
 import Footer from '../footer'
 import Navbar from '../Navigation/navbar'
@@ -148,8 +149,8 @@ export default (props) => {
             <p>Great photos and video grab attention, period.  There's a lot of forethought that goes into the creation of eye catching media, particularly if they're being used as website content.  When we create assets for websites we need to consider the composition of each image or video.  The colours, framing and context of each photo or video has the potential to bring vibrance and life to a design.</p>
             <h2>Check out my personal social media accounts</h2>
             <div>
-                <a ga-on="click" ga-event-category="Instagram" href="https://www.instagram.com/rick_heffren/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagram" /></a>
-                <a ga-on="click" ga-event-category="Flickr" href="https://www.flickr.com/photos/iseeumhmm/" target="_blank" rel="noopener noreferrer"><img src={flickr} alt="flickr" /></a>
+                <a onClick={ ()=> Event("Home - Instagram") } href="https://www.instagram.com/rick_heffren/" target="_blank" rel="noopener noreferrer"><img src={instagram} alt="instagram" /></a>
+                <a onClick={ ()=> Event("Home - Flickr") } href="https://www.flickr.com/photos/iseeumhmm/" target="_blank" rel="noopener noreferrer"><img src={flickr} alt="flickr" /></a>
             </div>
           </div>
         </div>

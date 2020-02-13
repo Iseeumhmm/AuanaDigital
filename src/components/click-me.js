@@ -1,4 +1,5 @@
 import React from 'react'
+import Event from './AnalyticsEvents'
 import styled from 'styled-components'
 const FooterContainer = styled.div`
     display: ${ ({hidden}) => hidden ? "none" : "flex" };
@@ -13,11 +14,12 @@ const FooterContainer = styled.div`
 
 export default (props) => {
     const handleClick = () => {
+        Event("Home - CLICK ME")
         props.clicked()
     }
     return (
         <FooterContainer hidden={props.hidden} className="footer">
-            <h2 ga-on="click" ga-event-category="GetStarted" onClick={handleClick}>CLICK ME</h2>
+            <h2 onClick={handleClick}>CLICK ME</h2>
         </FooterContainer>
     )
 }

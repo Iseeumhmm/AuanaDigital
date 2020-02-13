@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga'
 import Card from '../components/spring/card';
 import styled, { keyframes } from 'styled-components'
 import Loader from '../components/HomePageContent/LoadingScreen'
@@ -91,8 +92,11 @@ export default () => {
   }
 
   useEffect(()=>{
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname)
+    let interval
     let isSubscribed = true
-    setInterval(() => {
+    interval = setInterval(() => {
       setLoadDelay(false)
       const transition = document.getElementById('logo');
       const loaderAnimation = document.getElementById('loader');
@@ -105,7 +109,10 @@ export default () => {
         };
       }
       }, 1500);
-      return () => { isSubscribed = false }
+      return () => { 
+        isSubscribed = false 
+        clearInterval(interval)
+      }
   }, [])
 
   const content = (
