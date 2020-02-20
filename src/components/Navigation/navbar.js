@@ -145,7 +145,7 @@ const NavBar = (props) => {
   const [open, setOpen] = useState(false);
   const node = React.useRef();
   return (
-    <div>
+    <div id="nav_bar">
       <div ref={node} style={{}}>
         <Burger black={props.black} open={open} setOpen={setOpen} />
         <Menu style={{zIndex: "1000"}} open={open} setOpen={setOpen} />

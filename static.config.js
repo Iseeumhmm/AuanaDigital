@@ -60,7 +60,7 @@ export default {
           "template": "ScrollAnimations/ScrollAnimations.js",
           "date" : "",
           "title": "Scroll Animations",
-          "subtitle": "Pick some dates from the past or future",
+          "subtitle": "Scroll to stoke the fire",
           "body": `<h1 id="cool-eh">Cool Eh?</h1>
           <p>We can, and should expect more from our web experience.  We can use the technologies to interact with our visitors in ways we could have only dreamed about a short time ago. <br /><br />
           <strong>Practical use case:</strong> coloured eye contact sales? Maybe, but this example is really meant to show the powers we can harness from behind the scenes.
