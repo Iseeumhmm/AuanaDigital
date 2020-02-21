@@ -8,7 +8,7 @@ import Contact from '../components/HomePageContent/ContactContainer'
 const spinner = require('../assets/icons/spinner.svg')
 
 const Container = styled.div`
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   display: flex ;
   position: ${ ({clicked}) => clicked ? "absolute" : "fixed" };
   height: 100%;

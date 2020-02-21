@@ -1,24 +1,24 @@
 // Imports
-import plugin0 from '/Users/rickheffren/Documents/WebDevelopment/auana/node_modules/react-static-plugin-reach-router/browser.api.js'
+import plugin0 from '/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-reach-router/browser.api.js'
 
 // Plugins
 const plugins = [{
-        location: "/Users/rickheffren/Documents/WebDevelopment/auana/node_modules/react-static-plugin-source-filesystem",
+        location: "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-source-filesystem",
         plugins: [],
         hooks: {}
       },
 {
-        location: "/Users/rickheffren/Documents/WebDevelopment/auana/node_modules/react-static-plugin-reach-router",
+        location: "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-reach-router",
         plugins: [],
         hooks: plugin0({})
       },
 {
-        location: "/Users/rickheffren/Documents/WebDevelopment/auana/node_modules/react-static-plugin-sitemap/dist",
+        location: "/Users/rickheffren/Documents/WebDevelopment/Auana_react/node_modules/react-static-plugin-sitemap/dist",
         plugins: [],
         hooks: {}
       },
 {
-        location: "/Users/rickheffren/Documents/WebDevelopment/auana",
+        location: "/Users/rickheffren/Documents/WebDevelopment/Auana_react",
         plugins: [],
         hooks: {}
       }]
