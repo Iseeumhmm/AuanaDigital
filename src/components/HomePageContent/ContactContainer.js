@@ -20,13 +20,13 @@ const animateOhana2 = keyframes`
   100%  { transform: scale(1);  }
 `
 const page2Right = keyframes`
-  0%    { transform: translateX(250%);  }
-  80%   { transform: translateX(250%);  }
+  0%    { transform: translateX(550%);  }
+  80%   { transform: translateX(550%);  }
   100%  { transform: translateX(0);  }
 `
 const page2Left = keyframes`
-  0%    { transform: translateX(-250%);  }
-  80%   { transform: translateX(-250%);  }
+  0%    { transform: translateX(-550%);  }
+  80%   { transform: translateX(-550%);  }
   100%  { transform: translateX(0);  }
 `
 

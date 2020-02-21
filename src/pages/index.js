@@ -27,7 +27,7 @@ const Container = styled.div`
     }
   }
   @media( min-aspect-ratio: 6/5 ) {
-    height: 80rem;
+    height: 100%;
     .spacer {
       height: 100rem;
     }
