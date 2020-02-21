@@ -50,7 +50,7 @@ position: relative;
   }
   .action_container {
     width: 100%;
-    margin: auto;
+    margin: 10rem auto 0;
   }
   #header_container {
     display: block;
@@ -61,7 +61,10 @@ position: relative;
     h1 { padding: 0; }
   }
   .logo {
-    margin-top: 1rem;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     padding-bottom: 2rem;
     width: 17rem;
   }
@@ -105,8 +108,7 @@ const Container = styled.div`
  }
  .video_container {
    width: 100%;
-   height: 100%;
-   min-height: 200px;
+   height: 300px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -147,6 +149,7 @@ export default function Blog() {
   const [content, setContent] = useState("")
   const [position, setPosition] = useState(null)
   const [positionSlide, setPositionSlide] = useState(0)
+  let tween = useRef(null)
 
 
   let videoTag = document.querySelector('#video')
@@ -166,6 +169,10 @@ export default function Blog() {
     for (let i = 0; i < logo.length; i++) {
       // console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
     }
+    // tween.getGSAP().onComplete = (() => (console.log('fuck!')))
+    console.log('object: ', tween.getGSAP())
+    console.log(tween.timeline.timeline)
+
   }, [])
   useEffect(() => {
     if (position) {
@@ -173,7 +180,12 @@ export default function Blog() {
       videoTag.currentTime = Math.floor(position * 100) / 10
       // console.log(Math.floor(position * 100) / 10 * .62)
     }
+    console.log('slidePositon: ', positionSlide)
   }, [position])
+
+  const fired = () => {
+    console.log('fire')
+  }
   return (
     <PageContainer id="page_container">
       <Head>
@@ -190,6 +202,7 @@ export default function Blog() {
       </Head>
       <div className="content_container">
         <NavBar black />
+        <img src={logo} className="logo" alt="Auana Logo" />
         <Container>
           <Controller>
             <Scene
@@ -207,12 +220,11 @@ export default function Blog() {
                 }
                 return (
                   <div className="action_container">
-                    <img src={logo} className="logo" alt="Auana Logo" />
                     <wired-card fill="#2AA8DF" id="header_container" elevation="3">
                       {post.subtitle}
                     </wired-card>
-
-                    <Timeline totalProgress={positionSlide} paused>
+                    <Markdown className="markdown" escapeHtml={false}>{content}</Markdown>
+                    <Timeline ref={element => { tween = element; }} totalProgress={positionSlide} paused>
                       <Tween from={{ x: "0" }} to={{ x: "500%" }}>
                         <div className="intro">
                           <div className="video_container">
@@ -224,8 +236,8 @@ export default function Blog() {
                       </Tween>
                     </Timeline>
 
-                    <Timeline totalProgress={positionSlide} paused>
-                      <Tween from={{ x: "0" }} to={{ x: "-500%" }}>
+                    <Timeline totalProgress={positionSlide} paused >
+                      <Tween from={{ x: "0" }} to={{ x: "-500%" }} >
                         <wired-card style={{ width: "calc(100% - 4rem)", margin: "auto" }} elevation="3">
                           <div className="ahi_container">
                             <svg id="ahi" width="187" height="104" viewBox="0 0 187 104" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -240,26 +252,7 @@ export default function Blog() {
                         </wired-card>
                       </Tween>
                     </Timeline>
-
                   </div>
-                )
-              }}
-            </Scene>
-            <Scene
-              triggerHook={1}
-              triggerElement={"#blog_text"}
-              duration={0}>
-              {(progress, event) => {
-                return (
-
-                  <Timeline totalProgress={progress} paused>
-                    <Tween to={{ y: "-30%" }}>
-                      <div id="blog_text" >
-                        <Markdown className="markdown" escapeHtml={false}>{content}</Markdown>
-                      </div>
-                    </Tween>
-                  </Timeline>
-
                 )
               }}
             </Scene>
