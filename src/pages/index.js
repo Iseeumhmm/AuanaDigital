@@ -9,6 +9,7 @@ const spinner = require('../assets/icons/spinner.svg')
 
 const Container = styled.div`
   overflow-x: hidden;
+  overflow-y: scroll;
   --webkit-overflow-scrolling: touch;
   display: flex ;
   position: ${ ({clicked}) => clicked ? "absolute" : "fixed" };
