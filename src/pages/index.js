@@ -12,7 +12,6 @@ const Container = styled.div`
   position: ${ ({clicked}) => clicked ? "absolute" : "fixed" };
   height: 100%;
   width: 100vw;
-  overflow-x: hidden;
   flex-flow: column nowrap;
   align-content: space-between;
   .spacer {
