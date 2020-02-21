@@ -29,7 +29,8 @@ const page2Left = keyframes`
   80%   { transform: translateX(-550%);  }
   100%  { transform: translateX(0);  }
 `
-
+const PageContainer = styled.div`
+`
 const ContactContainer = styled.div`
   display: ${ ({clicked}) => clicked ? "flex" : "none" };
   position: absolute;
@@ -127,7 +128,7 @@ export default (props) => {
         props.close()
     }
     return (
-      <React.Fragment>
+      <PageContainer>
         <Navbar />
         <ContactContainer clicked={props.clicked}>
         <div id="logo" onClick={handleClose} className="logo" />
@@ -156,7 +157,7 @@ export default (props) => {
         </div>
        <Footer />
       </ContactContainer>
-      </React.Fragment>
+      </PageContainer>
     )
 
 }
