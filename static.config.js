@@ -95,8 +95,8 @@ export default {
       }
     ]
   },
-  // siteRoot: 'https://auana.ca',
-  siteRoot: 'https://auana.rickheffren.com',
+  siteRoot: 'https://auana.ca',
+  // siteRoot: 'https://auana.rickheffren.com',
 
   plugins: [
     [
