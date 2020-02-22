@@ -188,7 +188,9 @@ export default function Blog() {
   useEffect(() => {
     if (position) {
       videoTag.currentTime = Math.floor(position * 100) / 10;
+    
     }
+    
   }, [position]);
 
   const BlogText = props => {
