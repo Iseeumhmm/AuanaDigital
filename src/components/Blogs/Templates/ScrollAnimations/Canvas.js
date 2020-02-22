@@ -19,10 +19,10 @@ const Canvas = (props) => {
   let canvasRef = useRef(null)
   let videoRef = useRef(null)
 
-  // useEffect(() => {
-  //   console.log(videoRef)
-  //   videoRef.current.load()
-  // }, [])
+  useEffect(() => {
+    console.log(videoRef)
+    videoRef.current.load()
+  }, [])
 
   // useEffect(() => {
   //   // Draws a square in the middle of the canvas rotated
@@ -53,7 +53,7 @@ const Canvas = (props) => {
   )
 }
 
-const Animation = () => {
+// const Animation = () => {
 
   // const [angle, setAngle] = useState(0)
   // const [raf, setRaf] = useState(0)
@@ -63,9 +63,9 @@ const Animation = () => {
   //   }))
   //   return cancelAnimationFrame(raf)
   // }, [angle])
-  return (
-    <Canvas  />
-  )
-}
+//   return (
+//     <Canvas  />
+//   )
+// }
 
-export default Animation
+export default Canvas
