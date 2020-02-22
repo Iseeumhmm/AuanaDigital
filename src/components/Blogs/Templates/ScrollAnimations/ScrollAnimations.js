@@ -165,6 +165,8 @@ export default function Blog() {
   const [positionSlide, setPositionSlide] = useState(0);
   let tween = useRef(null);
   let videoRef = useRef(null);
+  let video2Ref = useRef(null);
+
 
 
   const post = useRouteData();
@@ -181,6 +183,8 @@ export default function Blog() {
   }, []);
 
   useEffect(() => {
+    console.log('video2: ', video2Ref.current)
+    video2Ref.current.load()
     let videoDiv = videoRef.current.getGSAP()
     const video = videoDiv.target[0].children[0]
     video.load()
@@ -238,7 +242,7 @@ export default function Blog() {
       <div className="content_container">
         <NavBar black />
         <img src={logo} className="logo" alt="Auana Logo" />
-        <video style={{width: "100%"}} muted playsInline>
+        <video ref={video2Ref} style={{width: "100%"}} muted playsInline>
           <source src={cinemagraph} type='video/mp4' />
         </video>
         <Container>
