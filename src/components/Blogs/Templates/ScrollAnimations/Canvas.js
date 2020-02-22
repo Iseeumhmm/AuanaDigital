@@ -47,7 +47,7 @@ const Canvas = (props) => {
       <canvas width="300" height="300" ref={canvasRef} />
       <div id="video_box">
         <div id="video_overlays"></div>
-        <video ref={videoRef} id="video" controls width="640" height="264">
+        <video ref={videoRef} id="video" width="640" height="264">
           <source src={cinemagraph} type='video/mp4' />
         </video>
       </div>
