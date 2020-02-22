@@ -182,8 +182,10 @@ export default function Blog() {
   }, []);
 
   useEffect(() => {
-    let video = videoRef.current.getGSAP()
-    video.target[0].load()
+    let videoDiv = videoRef.current.getGSAP()
+    const video = videoDiv.target[0].children[0]
+    video.load()
+    video.currentTime += 2
     let logo = document.querySelectorAll("#ahi path");
     for (let i = 0; i < logo.length; i++) {
       // console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
@@ -242,7 +244,7 @@ export default function Blog() {
               triggerHook={0}
               triggerElement={"#page_container"}
               duration={1000}
-              indicators={true}
+              // indicators={true}
               pin
             >
               {(progress, event) => {
@@ -274,9 +276,11 @@ export default function Blog() {
                           <div className="video_container">
                             <Tween ref={videoRef} duration={1.25} from={{ height: "0%;" }}>
                               {/* <video ref={ref => console.log('this is ref: ', ref)} id="video" src={cinemagraph}></video> */}
-                              <video id="video" muted playsInline>
-                                <source src={cinemagraph} type='video/mp4' />
-                              </video>
+                              <div style={{height: "300px"}}>
+                                <video id="video" muted playsInline>
+                                  <source src={cinemagraph} type='video/mp4' />
+                                </video>
+                              </div>
                             </Tween>
                           </div>
                         </div>
