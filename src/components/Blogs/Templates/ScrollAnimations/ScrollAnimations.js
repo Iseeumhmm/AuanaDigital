@@ -238,6 +238,9 @@ export default function Blog() {
       <div className="content_container">
         <NavBar black />
         <img src={logo} className="logo" alt="Auana Logo" />
+        <video style={{width: "100%"}} muted playsInline>
+          <source src={cinemagraph} type='video/mp4' />
+        </video>
         <Container>
           <Controller>
             <Scene
@@ -276,7 +279,7 @@ export default function Blog() {
                           <div className="video_container">
                             <Tween ref={videoRef} duration={1.25} from={{ height: "0%;" }}>
                               {/* <video ref={ref => console.log('this is ref: ', ref)} id="video" src={cinemagraph}></video> */}
-                              <div style={{height: "300px"}}>
+                              <div style={{ height: "300px" }}>
                                 <video id="video" muted playsInline>
                                   <source src={cinemagraph} type='video/mp4' />
                                 </video>
