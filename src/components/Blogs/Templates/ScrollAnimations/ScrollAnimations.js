@@ -23,13 +23,13 @@ const PageContainer = styled.div`
     top: 0;
     right: 0;
   }
-  position: relative;
-  overflow-x: hidden;
+  /* position: relative;
+  overflow-x: hidden; */
   text-align: center;
   color: ${({ theme: { colorDarkGrey } }) => colorDarkGrey};
   background-color: ${({ theme: { colorLightGrey } }) => colorLightGrey};
   .content_container {
-    position: relative;
+    /* position: relative; */
     h1 {
       text-align: center;
       padding: 0 0 2rem;
