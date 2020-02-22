@@ -167,7 +167,6 @@ export default function Blog() {
   let videoRef = useRef(null);
 
 
-  let videoTag = document.querySelector("#video");
   const post = useRouteData();
 
   useEffect(() => {
@@ -192,9 +191,10 @@ export default function Blog() {
     }
   }, []);
   useEffect(() => {
-
+    let videoDiv = videoRef.current.getGSAP()
+    const video = videoDiv.target[0].children[0]
     if (position) {
-      videoTag.currentTime = Math.floor(position * 100) / 10;
+      video.currentTime = Math.floor(position * 100) / 10;
 
     }
 
