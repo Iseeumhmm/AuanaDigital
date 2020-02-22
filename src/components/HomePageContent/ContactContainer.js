@@ -29,7 +29,13 @@ const page2Left = keyframes`
   80%   { transform: translateX(-550%);  }
   100%  { transform: translateX(0);  }
 `
+const NavContainer = styled.div`
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 
+`
 const ContactContainer = styled.div`
   display: ${ ({clicked}) => clicked ? "flex" : "none" };
   position: absolute;
@@ -127,8 +133,10 @@ export default (props) => {
         props.close()
     }
     return (
-      <React.Fragment>
-        <Navbar />
+      <>
+        <NavContainer>
+          <Navbar />
+        </NavContainer>
         <ContactContainer clicked={props.clicked}>
         <div id="logo" onClick={handleClose} className="logo" />
         <div>
@@ -156,7 +164,7 @@ export default (props) => {
         </div>
        <Footer />
       </ContactContainer>
-      </React.Fragment>
+      </>
     )
 
 }

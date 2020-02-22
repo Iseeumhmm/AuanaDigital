@@ -35,7 +35,7 @@ const animateSmoke = keyframes`
 `
 
 const PageContainer = styled.div`
-position: relative;
+  position: relative;
   width: 100vw;
   overflow-x: hidden;
   max-width: 100vw;
