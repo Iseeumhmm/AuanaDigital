@@ -70,7 +70,7 @@ const PageContainer = styled.div`
   }
   .logo {
     position: fixed;
-    ${({ slidePosition }) => (slidePosition * 3) > 1.13 ? css`animation: ${animateLogo} 250ms forwards;` : null }
+    ${({ slidePosition }) => (slidePosition * 3) > 1.13 ? css`animation: ${animateLogo} 250ms forwards;` : null}
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
@@ -190,12 +190,12 @@ export default function Blog() {
     }
   }, []);
   useEffect(() => {
-   
+
     if (position) {
       videoTag.currentTime = Math.floor(position * 100) / 10;
-    
+
     }
-    
+
   }, [position]);
 
   const BlogText = props => {
@@ -254,7 +254,7 @@ export default function Blog() {
                 }
                 return (
                   <div className="action_container">
-                    <BlogText visible={positionSlide}/>
+                    <BlogText visible={positionSlide} />
                     <Timeline
                       ref={element => {
                         tween = element;
@@ -272,8 +272,11 @@ export default function Blog() {
                             {post.subtitle}
                           </wired-card>
                           <div className="video_container">
-                            <Tween ref={ videoRef } duration={1.25} from={{ height: "0%;" }}>
-                              <video ref={ ref => console.log('this is ref: ', ref) } id="video" src={cinemagraph}></video>
+                            <Tween ref={videoRef} duration={1.25} from={{ height: "0%;" }}>
+                              {/* <video ref={ref => console.log('this is ref: ', ref)} id="video" src={cinemagraph}></video> */}
+                              <video ref={videoRef} id="video" controls >
+                                <source src={cinemagraph} type='video/mp4' />
+                              </video>
                             </Tween>
                           </div>
                         </div>
