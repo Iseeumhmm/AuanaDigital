@@ -274,7 +274,7 @@ export default function Blog() {
                           <div className="video_container">
                             <Tween ref={videoRef} duration={1.25} from={{ height: "0%;" }}>
                               {/* <video ref={ref => console.log('this is ref: ', ref)} id="video" src={cinemagraph}></video> */}
-                              <video id="video" controls playsInline>
+                              <video id="video" muted playsInline>
                                 <source src={cinemagraph} type='video/mp4' />
                               </video>
                             </Tween>
