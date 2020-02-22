@@ -55,7 +55,7 @@ const PageContainer = styled.div`
   }
   .action_container {
     width: 100%;
-    min-height: 1000px;
+    min-height: 1500px;
     margin: 10rem auto 0;
   }
   #header_container {
@@ -274,7 +274,7 @@ export default function Blog() {
                           <div className="video_container">
                             <Tween ref={videoRef} duration={1.25} from={{ height: "0%;" }}>
                               {/* <video ref={ref => console.log('this is ref: ', ref)} id="video" src={cinemagraph}></video> */}
-                              <video ref={videoRef} id="video" controls >
+                              <video id="video" controls playsInline>
                                 <source src={cinemagraph} type='video/mp4' />
                               </video>
                             </Tween>
