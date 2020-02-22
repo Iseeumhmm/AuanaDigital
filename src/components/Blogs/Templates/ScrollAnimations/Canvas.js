@@ -53,19 +53,19 @@ const Canvas = (props) => {
   )
 }
 
-// const Animation = () => {
+const Animation = () => {
 
-//   const [angle, setAngle] = useState(0)
-//   const [raf, setRaf] = useState(0)
-//   useEffect(() => {
-//     setRaf(requestAnimationFrame(() => {
-//       setAngle(angle + 1)
-//     }))
-//     return cancelAnimationFrame(raf)
-//   }, [angle])
-//   return (
-//     <Canvas angle={angle} />
-//   )
-// }
+  // const [angle, setAngle] = useState(0)
+  // const [raf, setRaf] = useState(0)
+  // useEffect(() => {
+  //   setRaf(requestAnimationFrame(() => {
+  //     setAngle(angle + 1)
+  //   }))
+  //   return cancelAnimationFrame(raf)
+  // }, [angle])
+  return (
+    <Canvas  />
+  )
+}
 
-export default Canvas
+export default Animation
