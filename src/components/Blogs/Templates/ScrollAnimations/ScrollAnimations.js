@@ -164,6 +164,8 @@ export default function Blog() {
   const [position, setPosition] = useState(null);
   const [positionSlide, setPositionSlide] = useState(0);
   let tween = useRef(null);
+  let videoRef = useRef(null);
+
 
   let videoTag = document.querySelector("#video");
   const post = useRouteData();
@@ -180,12 +182,15 @@ export default function Blog() {
   }, []);
 
   useEffect(() => {
+    let video = videoRef.current.getGSAP()
+    video.target[0].load()
     let logo = document.querySelectorAll("#ahi path");
     for (let i = 0; i < logo.length; i++) {
       // console.log(`Letter ${i} is ${logo[i].getTotalLength()}`)
     }
   }, []);
   useEffect(() => {
+   
     if (position) {
       videoTag.currentTime = Math.floor(position * 100) / 10;
     
@@ -202,10 +207,6 @@ export default function Blog() {
       </div>
     )
   }
-
-  const fired = () => {
-    console.log("fire");
-  };
   return (
     <PageContainer slidePosition={positionSlide} id="page_container">
       <Head>
@@ -271,8 +272,8 @@ export default function Blog() {
                             {post.subtitle}
                           </wired-card>
                           <div className="video_container">
-                            <Tween duration={1.25} from={{ height: "0%;" }}>
-                              <video id="video" src={cinemagraph}></video>
+                            <Tween ref={ videoRef } duration={1.25} from={{ height: "0%;" }}>
+                              <video ref={ ref => console.log('this is ref: ', ref) } id="video" src={cinemagraph}></video>
                             </Tween>
                           </div>
                         </div>
