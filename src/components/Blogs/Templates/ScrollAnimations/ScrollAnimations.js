@@ -76,6 +76,9 @@ const PageContainer = styled.div`
       font-weight: bold;
       color: ${({ theme: { colorDarkGrey } }) => colorDarkGrey};
     }
+    a:first-child {
+      text-decoration: underline;
+    }
     h1 {
       line-height: 4rem;
     }
@@ -242,6 +245,14 @@ export default function Blog() {
     return (
       <div className="markdown" style={{ opacity: (opac) }}>
         <Markdown escapeHtml={false}>{content}</Markdown>
+        <blockquote> Apple seems to think highly of this technique and makes great use of it on it’s <a href="https://www.apple.com/ca/airpods-pro/" onClick={() => Event("Scroll Animations - Air Pods link")} rel="noreferrer noopener" target="_blank">AirPods Pro</a>  page.
+These techniques aren’t proprietary scripts belonging to the corporate giants, this is all just code implemented behind the scenes.  We can use them freely in our own projects and websites.
+</blockquote>
+        <br />
+        There are so many more cool things we can do when implementing front end web designs!  Stay tuned!
+<br /><br />
+        Thanks again for stopping by!
+        
         <Footer />
       </div>
     )
@@ -273,11 +284,11 @@ export default function Blog() {
         <title>Auana Digital</title>
       </Head>
       <div id="header_container">
-          <NavBar black />
-          <img src={logo} className="logo" alt="Auana Logo" />
-        </div>
+        <NavBar black />
+        <img src={logo} className="logo" alt="Auana Logo" />
+      </div>
       <div className="content_container">
-       
+
         <Container>
           <Controller>
             <Scene
@@ -363,7 +374,6 @@ export default function Blog() {
                           <div className="video_container">
                             <VideoContainer position={position} />
                           </div>
-
                           <p>Scroll to remove the lens</p>
                         </div>
                       </Tween>
@@ -378,31 +388,3 @@ export default function Blog() {
     </PageContainer>
   );
 }
-
-
-
-
-  // <svg
-  //   id="ahi"
-  //   width="187"
-  //   height="104"
-  //   viewBox="0 0 187 104"
-  //   fill="none"
-  //   xmlns="http://www.w3.org/2000/svg"
-  // >
-  //   <path
-  //     d="M57.024 74.368C52.32 74.08 46.416 73.936 39.312 73.936C32.304 73.936 26.352 74.128 21.456 74.512C18.576 86.416 16.464 95.392 15.12 101.44C13.392 101.632 11.664 101.728 9.93599 101.728C8.30399 101.728 5.66399 101.248 2.01599 100.288C17.664 58.624 26.784 27.856 29.376 7.98399C32.16 7.02399 35.808 6.54399 40.32 6.54399C44.832 6.54399 48.48 7.02399 51.264 7.98399C53.856 27.856 62.976 58.624 78.624 100.288C75.168 101.248 72.096 101.728 69.408 101.728C66.816 101.728 64.8 101.632 63.36 101.44C61.728 94.24 59.616 85.216 57.024 74.368ZM23.904 64.432C28.32 64.528 32.976 64.576 37.872 64.576C42.768 64.576 48.288 64.48 54.432 64.288C50.112 47.488 45.36 31.648 40.176 16.768H39.312C33.648 30.976 28.512 46.864 23.904 64.432Z"
-  //     stroke="white"
-  //     strokeWidth="3"
-  //   />
-  //   <path
-  //     d="M144.651 51.904L144.507 63.568C144.507 76.144 145.467 87.856 147.387 98.704C144.219 99.952 141.099 100.576 138.027 100.576C135.051 100.576 132.987 100.48 131.835 100.288C132.987 87.232 133.563 75.712 133.563 65.728C133.563 55.744 132.747 49.024 131.115 45.568C129.579 42.112 126.891 40.384 123.051 40.384C117.867 40.384 112.107 43.552 105.771 49.888C105.771 77.056 106.635 93.472 108.363 99.136C105.195 100.096 102.651 100.576 100.731 100.576C98.9074 100.576 96.3634 100.48 93.0994 100.288C94.5394 87.808 95.2594 73.024 95.2594 55.936C95.2594 38.752 95.1154 27.376 94.8274 21.808C94.5394 16.24 93.8194 10.048 92.6674 3.23199C95.1634 2.27199 97.6594 1.79199 100.155 1.79199C102.651 1.79199 105.243 1.88799 107.931 2.08C106.491 13.6 105.771 26.704 105.771 41.392C108.651 38.32 112.107 35.872 116.139 34.048C120.171 32.128 123.963 31.168 127.515 31.168C133.371 31.168 137.691 32.848 140.475 36.208C143.259 39.568 144.651 44.8 144.651 51.904Z"
-  //     stroke="white"
-  //     strokeWidth="3"
-  //   />
-  //   <path
-  //     d="M182.553 63.136C182.553 78.88 183.417 90.88 185.145 99.136C181.689 100.096 178.569 100.576 175.785 100.576C173.001 100.576 171.033 100.48 169.881 100.288C171.321 87.232 172.041 75.28 172.041 64.432C172.041 53.488 171.177 43.36 169.449 34.048C172.713 33.088 175.641 32.608 178.233 32.608C180.825 32.608 182.985 32.8 184.713 33.184C183.273 48.064 182.553 58.048 182.553 63.136ZM185.289 11.728C185.289 17.68 182.217 20.656 176.073 20.656C171.273 20.656 168.873 18.208 168.873 13.312C168.873 7.26399 171.945 4.24 178.089 4.24C182.889 4.24 185.289 6.736 185.289 11.728Z"
-  //     stroke="white"
-  //     strokeWidth="3"
-  //   />
-  // </svg>

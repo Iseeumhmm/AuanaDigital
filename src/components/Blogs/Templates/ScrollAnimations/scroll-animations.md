@@ -7,10 +7,3 @@ The hydro was out here for a couple hours yesterday but I happened to have my ca
 I find that when a page subtlety changes the gesture behaviour that you’re expecting, it really adds to the experience.  It once again goes that extra step to engage the visitor, allowing them to interact with the page in a fresh way, that is hopefully both memorable and enjoyable.  
 <br />
 The practical uses for this are endless, particularly for product presentations or displaying any kind of documentation in a more interactive and, let’s face it, less boring way.  
-<blockquote> Apple seems to think highly of this technique and makes great use of it on it’s <a href="https://www.apple.com/ca/airpods-pro/" rel="noreferrer noopener" target="_blank">AirPods Pro page.</a>
-These techniques aren’t proprietary scripts belonging to the corporate giants, this is all just code implemented behind the scenes.  We can use them freely in our own projects and websites.
-</blockquote>
-<br />
-There are so many more cool things we can do when implementing front end web designs!  Stay tuned!
-<br /><br />
-Thanks again for stopping by!
