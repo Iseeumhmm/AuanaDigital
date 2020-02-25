@@ -291,8 +291,8 @@ export default function Blog() {
                 setPosition(progress);
                 // if (progress > 0.62) {
                 //   setPositionSlide(progress - 0.62);
-                if (progress > 0.5) {
-                  setPositionSlide(progress - 0.5);
+                if (progress > 0.4) {
+                  setPositionSlide(progress - 0.4);
                 } else {
                   setPositionSlide(0);
                 }
