@@ -286,7 +286,7 @@ export default function Blog() {
             <Scene
               triggerHook={0}
               triggerElement={"#page_container"}
-              duration={500}
+              duration={750}
               // indicators={true}
               pin
             >
