@@ -18,11 +18,6 @@ const animateLogo = keyframes`
 100%  { transform: translate(-50%, -100%) }
 `
 const PageContainer = styled.div`
-  #nav_bar {
-    position: fixed;
-    top: 0;
-    right: 0;
-  }
   position: relative;
   overflow-x: hidden;
   text-align: center;
@@ -59,14 +54,10 @@ const PageContainer = styled.div`
     margin: 10rem auto 0;
   }
   #header_container {
-    display: block;
-    width: calc(100% - 4rem);
-    text-align: center;
-    line-height: 3.25rem;
-    color: ${({ theme: { colorLightGrey } }) => colorLightGrey};
-    h1 {
-      padding: 0;
-    }
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 4000;
   }
   .logo {
     position: fixed;
@@ -84,6 +75,9 @@ const PageContainer = styled.div`
       font-size: 2rem;
       font-weight: bold;
       color: ${({ theme: { colorDarkGrey } }) => colorDarkGrey};
+    }
+    h1 {
+      line-height: 4rem;
     }
   }
   blockquote {
@@ -278,9 +272,12 @@ export default function Blog() {
         />
         <title>Auana Digital</title>
       </Head>
+      <div id="header_container">
+          <NavBar black />
+          <img src={logo} className="logo" alt="Auana Logo" />
+        </div>
       <div className="content_container">
-        <NavBar black />
-        <img src={logo} className="logo" alt="Auana Logo" />
+       
         <Container>
           <Controller>
             <Scene
@@ -294,8 +291,8 @@ export default function Blog() {
                 setPosition(progress);
                 // if (progress > 0.62) {
                 //   setPositionSlide(progress - 0.62);
-                if (progress > 0.4) {
-                  setPositionSlide(progress - 0.4);
+                if (progress > 0.5) {
+                  setPositionSlide(progress - 0.5);
                 } else {
                   setPositionSlide(0);
                 }
@@ -366,7 +363,7 @@ export default function Blog() {
                           <div className="video_container">
                             <VideoContainer position={position} />
                           </div>
-                          
+
                           <p>Scroll to remove the lens</p>
                         </div>
                       </Tween>
