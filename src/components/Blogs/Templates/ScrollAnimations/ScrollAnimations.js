@@ -269,7 +269,7 @@ These techniques aren’t proprietary scripts belonging to the corporate giants,
         <meta property="og:site_name" content="Auana Digital" />
         <meta
           property="og:description"
-          content="Scroll Manipulation - scroll up to remove the camera lens!"
+          content="Scroll up to remove the camera lens!"
         />
         <meta
           property="og:url"
