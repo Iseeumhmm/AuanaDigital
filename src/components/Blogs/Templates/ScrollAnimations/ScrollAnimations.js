@@ -76,7 +76,7 @@ const PageContainer = styled.div`
       font-weight: bold;
       color: ${({ theme: { colorDarkGrey } }) => colorDarkGrey};
     }
-    a:first-child {
+    span {
       text-decoration: underline;
     }
     h1 {
@@ -245,7 +245,7 @@ export default function Blog() {
     return (
       <div className="markdown" style={{ opacity: (opac) }}>
         <Markdown escapeHtml={false}>{content}</Markdown>
-        <blockquote> Apple seems to think highly of this technique and makes great use of it on it’s <a href="https://www.apple.com/ca/airpods-pro/" onClick={() => Event("Scroll Animations - Air Pods link")} rel="noreferrer noopener" target="_blank">AirPods Pro</a>  page.
+        <blockquote> Apple seems to think highly of this technique and makes great use of it on it’s <span><a href="https://www.apple.com/ca/airpods-pro/" onClick={() => Event("Scroll Animations - Air Pods link")} rel="noreferrer noopener" target="_blank">AirPods Pro</a></span>  page.
 These techniques aren’t proprietary scripts belonging to the corporate giants, this is all just code implemented behind the scenes.  We can use them freely in our own projects and websites.
 </blockquote>
         <br />
