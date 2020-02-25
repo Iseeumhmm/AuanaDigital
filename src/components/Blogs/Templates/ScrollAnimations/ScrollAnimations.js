@@ -146,7 +146,10 @@ const Container = styled.div`
   video {
     width: 100%;
     height: 275px;
-    object-fit: cover;
+    object-fit: contain;
+    @media( min-width: 520px ) {
+      object-fit: cover;
+    }
   }
   #ahi path:nth-child(2) {
     stroke-dasharray: 413.97;
@@ -283,7 +286,7 @@ export default function Blog() {
             <Scene
               triggerHook={0}
               triggerElement={"#page_container"}
-              duration={1000}
+              duration={500}
               // indicators={true}
               pin
             >
@@ -364,7 +367,7 @@ export default function Blog() {
                             <VideoContainer position={position} />
                           </div>
                           
-                          <p>Scroll up slowly to remove the lens</p>
+                          <p>Scroll to remove the lens</p>
                         </div>
                       </Tween>
                     </Timeline>
