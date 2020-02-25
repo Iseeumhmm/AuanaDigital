@@ -262,7 +262,7 @@ export default function Blog() {
         />
         <meta
           property="og:url"
-          content="https://auana.ca/blog/website-interaction/scroll-animations"
+          content="https://auana.ca/blog/website-interaction/scroll-manipulation"
         />
         <meta property="og:image" content="http://auana.ca/images/scrollAnimations.jpg" />
         <meta property="og:image:width" content="1920" />

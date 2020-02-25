@@ -56,7 +56,7 @@ export default {
         Thanks for stopping by!</p>`
         },
         {
-          "id": "scroll-animations",
+          "id": "scroll-manipulation",
           "template": "ScrollAnimations/ScrollAnimations.js",
           "date" : "2020/02/25",
           "title": "Scroll Animations",
