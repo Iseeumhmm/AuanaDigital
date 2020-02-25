@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
-import cinemagraph from '../../../../assets/video/Rory.mp4'
+import cinemagraph from '../../../../assets/video/cameraMovie.mp4'
 
 const animateLine = keyframes`
 50%    { width: 100%; opacity: 1; }
@@ -25,7 +25,7 @@ animation: ${animateContainer} 3s ease forwards;
     transform: translate(-50%, -50%);
     width: 15px;
     height: 5px;
-    background-color: black;
+    background-color: #169A64;
     border-radius: 5px;
     animation: ${animateLine} 3s ease forwards;
 }
