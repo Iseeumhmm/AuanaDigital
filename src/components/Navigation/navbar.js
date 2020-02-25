@@ -63,7 +63,7 @@ const Menu = ({ open, setOpen }) => {
         <Link to="/" onClick={() => setOpen(!open)}>Home</Link>
         <Link to="/blog/website-interaction/colour" onClick={() => {setOpen(!open); Event("Menu - Colours")}}>Interaction with <span>Colours</span></Link>
         <Link to="/blog/website-interaction/odometer" onClick={() => {setOpen(!open); Event("Menu - Date Picker")}}>Interaction - Date Picker</Link>
-        <Link to="/blog/website-interaction/scroll-animations" onClick={() => {setOpen(!open); Event("Menu - Scroll Control")}}>Interaction - Scroll Control</Link>
+        <Link to="/blog/website-interaction/scroll-manipulation" onClick={() => {setOpen(!open); Event("Menu - Scroll Control")}}>Interaction - Scroll Control</Link>
     </StyledMenu>
   )
 }
