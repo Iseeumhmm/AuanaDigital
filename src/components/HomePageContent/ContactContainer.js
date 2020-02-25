@@ -148,7 +148,7 @@ export default (props) => {
             <h1>Websites</h1>
             <p>Can you think of a website that you found remarkable? Designed so that it was unique and fresh, yet the navigation was intuitive. The layout was well structured and pictures were carefully placed to supported the information on the page.<br /><br />
             When a website can deliver the information you need without wasting your time, it’s efficient. If it can do this and be atheistically pleasing, and maybe a little entertaining, it’s awesome!<br /><br />
-            As a website creator, auana has helped me to forge many skillsets and given me versatility. From digital design to photography and videography, lending me a higher-level perspective of website development as a whole. </p>
+            As a front end developer and web designer, auana has helped me to forge many skillsets and given me versatility. From digital design to photography and videography, lending me a higher-level perspective of website development as a whole. </p>
           </div>
         </div>
         <div>
